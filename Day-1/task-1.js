@@ -21,7 +21,7 @@ btn.addEventListener('click', function(){
     const pTag = document.createElement('p');
     pTag.textContent = 'Good Morning!';
     const text = document.getElementById('pra');
-    text.innerHTML = '';
+    // text.innerHTML = '';
     text.appendChild(pTag);
     // btn.disabled = true; 
 });
