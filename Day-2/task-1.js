@@ -5,4 +5,4 @@ const ptag = document.getElementById('p');
 document.getElementById('ClickBtn').addEventListener('click', () => {
     counter++;
     ptag.textContent = counter;
-})
+});

@@ -1,10 +1,12 @@
 ---------------------------------------Day 2 Tasks-------------------------------------
 Task 1: Button click করলে একটা counter বাড়বে। (0, 1, 2, 3...)
 
-Task 2: Input এ একটা number লিখবে — সেটা জোড় নাকি বিজোড় বলবে
+Task 2: একটা input আর button। Click করলে input এর value একটা list এ add হবে এবং নিচে দেখাবে।
 
-Task 3: একটা button আছে "Show" আরেকটা "Hide" — click করলে একটা text দেখাবে বা লুকাবে
+Task 3: একটা list আছে — ["Apple", "Banana", "Mango", "Orange"] — এগুলো automatically page এ list হিসেবে দেখাবে।
 
-Task 4: Input এ বয়স লিখে button click করলে বলবে — "তুমি প্রাপ্তবয়স্ক" বা "তুমি অপ্রাপ্তবয়স্ক"
+Task 4: উপরের list এ একটা Search input থাকবে। যা লিখবে সেই অনুযায়ী list filter হবে।
 
-Task 5: তিনটা input — তিনটা number। Button click করলে সবচেয়ে বড় number টা দেখাবে।
+Task 5: ৫টা number এর একটা array আছে। Button click করলে সবগুলোর যোগফল দেখাবে।
+
+Task 6: একটা list আছে। প্রতিটা item এর পাশে "Delete" button থাকবে। Click করলে সেই item মুছে যাবে।
