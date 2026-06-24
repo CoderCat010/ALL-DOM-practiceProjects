@@ -1,0 +1,1 @@
+// Task 1: একটা object আছে — {name: "Rahim", age: 22, city: "Dhaka"} এই তথ্যগুলো automatically page এ card হিসেবে দেখাবে।
