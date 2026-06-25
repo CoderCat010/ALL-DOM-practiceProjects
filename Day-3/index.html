@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- css link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
-<body>
+<body class="text-center pt-28">
     
     <!-- task: 1 -->
      
@@ -14,14 +18,22 @@
         <!-- list will be added form js dynamically -->
      </ul>
 
-     <!-- grades button -->
-      <button id="less-than">Less than 80</button>
-      <button id="greater-than">Greater than 80</button>
+     <!-- 
+     add new student list 
+     -->
+      <div>
+        <input class="py-2 px-3 border focus:outline-none rounded-sm" id="add-studentName" type="text">
+        <input class="py-2 px-3 border focus:outline-none rounded-sm" id="add-studentmark" type="text">
+        <button class="bg-blue-500 font-medium text-lg text-[#ffffff] py-2 px-3 shadow-md rounded-md cursor-pointer" id="add-btn">Add</button>
+      </div>
 
-     <!-- add new student list -->
-      <input id="input" type="text">
-      <button id="add-btn">Add</button>
-
+     <!-- 
+      grades button 
+      -->
+      <div class="mt-5">
+        <button class="bg-red-500 font-medium text-lg text-[#ffffff] py-2 px-3 shadow-md rounded-3xl cursor-pointer" id="less-than">Less than 80</button>
+        <button class="bg-green-500 font-medium text-lg text-[#ffffff] py-2 px-3 shadow-md rounded-3xl cursor-pointer" id="greater-than">Greater than 80</button>
+      </div>
 
 
     <!-- js file -->
