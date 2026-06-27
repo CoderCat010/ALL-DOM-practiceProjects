@@ -19,7 +19,7 @@ const arrOfObj = [
 
 
 function renderList(filteredData){
-   listContainer.innerText = '';
+   listContainer.innerHTML = '';
 
    filteredData.forEach((eachOneData) => {
       // create students list 
@@ -59,4 +59,11 @@ document.getElementById('add-btn').addEventListener('click', () => {
    // Clear previous values in input boxs
    studentNames.value = '';
    studentMarks.value = '';
+});
+
+greaterThan.addEventListener('click', () => {
+   renderList(arrOfObj.filter(student => student.marks > 80));
+})
+lessThan.addEventListener('click', () => {
+   renderList(arrOfObj.filter(student => student.marks < 80));
 });
