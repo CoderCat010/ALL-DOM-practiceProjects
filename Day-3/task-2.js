@@ -19,6 +19,8 @@ const arrOfObj = [
 
 
 function renderList(filteredData){
+   listContainer.innerText = '';
+
    filteredData.forEach((eachOneData) => {
       // create students list 
       const listItems = document.createElement('li');
@@ -43,3 +45,18 @@ function renderList(filteredData){
    }) 
 }
 renderList(arrOfObj);
+
+// add new student list 
+document.getElementById('add-btn').addEventListener('click', () => {
+   let name = studentNames.value;
+   let marks = studentMarks.value;
+
+   if(name === '' || marks === '') return;
+
+   arrOfObj.push({name: name, marks: marks});
+   renderList(arrOfObj);
+
+   // Clear previous values in input boxs
+   studentNames.value = '';
+   studentMarks.value = '';
+});
