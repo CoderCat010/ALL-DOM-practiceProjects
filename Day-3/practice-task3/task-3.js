@@ -9,6 +9,7 @@
 
 /* কী কী করতে হবে
     * ❶ Page load হলে সব product দেখাবে 
+
     * ❷ "Electronics" button click করলে শুধু Electronics দেখাবে
 
     * ❸ "Clothing" button click করলে শুধু Clothing দেখাবে
@@ -25,3 +26,26 @@ const products = [
    {name: "Pants", price: 1200, category: "Clothing"},
    {name: "Headphone", price: 3500, category: "Electronics"},
 ];
+
+const allProducts = document.getElementById('all-products');
+
+// Page load হলে সব product দেখাবে 
+function renderList(allData){
+    allProducts.innerHTML = '';
+    // create products items
+    allData.forEach((product) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<li>
+            <span>Name: ${product.name}</span>
+            <span>Price: ${product.price}</span>
+        </li>`;
+        allProducts.appendChild(li)
+    })
+}
+renderList(products);
+
+document.getElementById('items-button').addEventListener('click', (event) => {
+    const clickedBtn = event.target;
+    console.log(clickedBtn);
+    
+})
