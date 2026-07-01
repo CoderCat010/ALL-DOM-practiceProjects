@@ -79,7 +79,7 @@ body{
     width: 350px;
     display: flex;
     justify-content: space-between;
-    padding: 6px 7px;
+    padding: 10px;
     background-color: cadetblue;
     color: #f5f8ff;
     border-radius: 10px;

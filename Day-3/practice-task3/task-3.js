@@ -21,9 +21,9 @@
 
 const products = [
    {name: "Phone", price: 15000, category: "Electronics"},
-   {name: "Shirt", price: 800, category: "Clothing"},
+   {name: "Shirt", price: 800, category: "Clothings"},
    {name: "Laptop", price: 55000, category: "Electronics"},
-   {name: "Pants", price: 1200, category: "Clothing"},
+   {name: "Pants", price: 1200, category: "Clothings"},
    {name: "Headphone", price: 3500, category: "Electronics"},
 ];
 
@@ -35,17 +35,25 @@ function renderList(allData){
     // create products items
     allData.forEach((product) => {
         const li = document.createElement('li');
-        li.innerHTML = `<li>
+        li.innerHTML = `
             <span>Name: ${product.name}</span>
-            <span>Price: ${product.price}</span>
-        </li>`;
+            <span>Price: ${product.price}</span>`;
         allProducts.appendChild(li)
     })
 }
 renderList(products);
 
+
+// "Electronics" button click করলে শুধু Electronics দেখাবে, "Clothing" button click করলে শুধু Clothing দেখাবে
 document.getElementById('items-button').addEventListener('click', (event) => {
     const clickedBtn = event.target;
-    console.log(clickedBtn);
+    if(clickedBtn.tagName !== 'BUTTON') return;
     
+    const category = clickedBtn.textContent;
+    if(category === 'All'){
+        renderList(products)
+    }else{
+        renderList(products.filter(categories => categories.category === category));
+    }
+
 })
