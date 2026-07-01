@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f5f8ff;
+    font-family: "Nunito", sans-serif;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.search-product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.search-product input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    width: 400px;
+    height: 30px;
+    padding: 0 10px;
+    background: none;
+}
+
+.search-product input:focus{
+    border-bottom: 1px solid #6759ff;
+}
+
+.search-product button{
+    padding: 10px 30px;
+    background-color: #6759ff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.items-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    gap: 10px;
+}
+
+.items-button button{
+    border: 1px solid #6759ff;    
+    background: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.items-button button:hover{
+    background-color: #6759ff;
+    color: #fff;
+}
+
+#all-products{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.cards-container{
+    background-color: whitesmoke;
+    width: 100%;
+    max-width: 190px;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+.img-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 150px; 
+}
+
+.img-container img{
+    border-radius: 0 0 10px 10px;
+}
+
+.cards-description{
+    padding: 20px 0 30px 0;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.cards-description h2{
+    font-size: 14px;
+    padding-left: 20px;
+}
+
+.cards-description button{
+    padding: 10px 7px;
+    background-color: #6759ff;
+    border: none;
+    border-radius: 50%;
+    font-weight: 500;
+    position: absolute;
+    right: -9%;
+    top: -1%;
+    color: white;
+    cursor: pointer;
+}
