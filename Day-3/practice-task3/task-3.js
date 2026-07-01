@@ -21,7 +21,7 @@
 
 // all elements
 const productName = document.getElementById('product-name');
-const productName = document.getElementById('product-price');
+const productPrice = document.getElementById('product-price');
 const addBtn = document.getElementById('add-btn');
 const allProducts = document.getElementById('all-products');
 
@@ -60,3 +60,17 @@ document.getElementById('items-button').addEventListener('click', (event) => {
         renderList(products.filter(categories => categories.category === category));
     }
 });
+
+
+// add new products
+addBtn.addEventListener('click', () => {
+    const name = productName.value;
+    const price = productPrice.value;
+    if(name === '' || price ==='') return;
+
+    products.push({name: name, price: price});
+    renderList(products);
+
+    productName.value = '';
+    productPrice.value = '';
+})
