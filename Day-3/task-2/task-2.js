@@ -3,12 +3,12 @@
 
    * {name: "Jamal", marks: 78}] সবার নাম আর marks list হিসেবে দেখাবে। উপরের same array — button click করলে শুধু যাদের marks 80 এর উপরে তাদের দেখাবে। 
 */
+// all elements
 const listContainer = document.getElementById('list-container');
 const studentNames = document.getElementById('add-studentName');
 const studentMarks = document.getElementById('add-studentmarks');
 const lessThan = document.getElementById('less-than');
 const greaterThan = document.getElementById('greater-than');
-
 
 // all data
 const arrOfObj = [
@@ -46,6 +46,7 @@ function renderList(filteredData){
 }
 renderList(arrOfObj);
 
+
 // add new student list 
 document.getElementById('add-btn').addEventListener('click', () => {
    let name = studentNames.value;
@@ -61,6 +62,8 @@ document.getElementById('add-btn').addEventListener('click', () => {
    studentMarks.value = '';
 });
 
+
+// get greater than and less than marks through filter 
 greaterThan.addEventListener('click', () => {
    renderList(arrOfObj.filter(student => student.marks > 80));
 })

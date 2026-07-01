@@ -13,7 +13,15 @@
 
     * ❸ "Clothing" button click করলে শুধু Clothing দেখাবে
 
-    * ❹ Input এ নতুন product add করা যাবে
+    * ❹ Input এ product nam r price diye নতুন product add করা যাবে
 
     * ❺ প্রতিটা product এর পাশে price 10000 এর বেশি হলে "Expensive" কম হলে "Affordable" দেখাবে
 */
+
+const products = [
+   {name: "Phone", price: 15000, category: "Electronics"},
+   {name: "Shirt", price: 800, category: "Clothing"},
+   {name: "Laptop", price: 55000, category: "Electronics"},
+   {name: "Pants", price: 1200, category: "Clothing"},
+   {name: "Headphone", price: 3500, category: "Electronics"},
+];
