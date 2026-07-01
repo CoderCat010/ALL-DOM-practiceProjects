@@ -19,6 +19,12 @@
     * ❺ প্রতিটা product এর পাশে price 10000 এর বেশি হলে "Expensive" কম হলে "Affordable" দেখাবে
 */
 
+// all elements
+const productName = document.getElementById('product-name');
+const productName = document.getElementById('product-price');
+const addBtn = document.getElementById('add-btn');
+const allProducts = document.getElementById('all-products');
+
 const products = [
    {name: "Phone", price: 15000, category: "Electronics"},
    {name: "Shirt", price: 800, category: "Clothings"},
@@ -26,8 +32,6 @@ const products = [
    {name: "Pants", price: 1200, category: "Clothings"},
    {name: "Headphone", price: 3500, category: "Electronics"},
 ];
-
-const allProducts = document.getElementById('all-products');
 
 // Page load হলে সব product দেখাবে 
 function renderList(allData){
@@ -48,12 +52,11 @@ renderList(products);
 document.getElementById('items-button').addEventListener('click', (event) => {
     const clickedBtn = event.target;
     if(clickedBtn.tagName !== 'BUTTON') return;
-    
+
     const category = clickedBtn.textContent;
     if(category === 'All'){
         renderList(products)
     }else{
         renderList(products.filter(categories => categories.category === category));
     }
-
-})
+});
