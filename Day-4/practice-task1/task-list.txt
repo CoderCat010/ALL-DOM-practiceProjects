@@ -1,4 +1,4 @@
-Task — Note App
+Task — Note App ---> Add, Delete, Total count
 কী কী করতে হবে:
 * Input এ কিছু লিখে "Add" button click করলে note add হবে
 * সব note নিচে list হিসেবে দেখাবে
