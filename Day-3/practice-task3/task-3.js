@@ -15,8 +15,6 @@
     * ❸ "Clothing" button click করলে শুধু Clothing দেখাবে
 
     * ❹ Input এ product nam r price diye নতুন product add করা যাবে
-
-    * ❺ প্রতিটা product এর পাশে price 10000 এর বেশি হলে "Expensive" কম হলে "Affordable" দেখাবে
 */
 
 // all elements

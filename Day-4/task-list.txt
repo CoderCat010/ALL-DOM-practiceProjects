@@ -1,0 +1,12 @@
+Task — Note App
+কী কী করতে হবে:
+* Input এ কিছু লিখে "Add" button click করলে note add হবে
+* সব note নিচে list হিসেবে দেখাবে
+* প্রতিটা note এর পাশে "Delete" button থাকবে — click করলে মুছে যাবে
+* উপরে দেখাবে "Total Notes: 3"
+* Input খালি হলে add হবে না
+* একটা Search input থাকবে — লিখলে সাথে সাথে note গুলো filter হবে
+* দুটো button — "All" "Important"
+* Note add করার সময় একটা checkbox থাকবে — "Important"
+* Important button click করলে শুধু important notes দেখাবে
+* Search আর Filter একসাথে কাজ করবে
