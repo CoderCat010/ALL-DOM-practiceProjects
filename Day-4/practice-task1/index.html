@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
+
+     <!-- css link -->
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     
+</head>
+<body class="flex justify-center bg-fuchsia-200">
+    <!-- parent container -->
+    <section class="mt-20">
+        <!-- 
+        add note 
+        -->
+         <div class="flex flex-col items-end">
+            <!-- add note button -->
+             <button class="flex items-center gap-x-1 bg-fuchsia-500 text-[#ffffff] text-base font-medium  py-2 px-3 rounded-full shadow-2xl cursor-pointer">Add Note
+                <!-- icon -->
+                <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                </svg>
+             </button>
+
+             <!-- note input -->
+             <textarea class="bg-white focus:outline-none w-[350px] h-24 p-4 mt-4 rounded-xl shadow-sm resize-none" placeholder="Type Here..."></textarea>
+         </div>
 
 
+
+    </section>
 
     <!-- js file -->
      <script src="./script.js"></script>
