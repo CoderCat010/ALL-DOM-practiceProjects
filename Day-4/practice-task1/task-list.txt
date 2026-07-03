@@ -6,7 +6,6 @@ Task — Note App ---> Add, Delete, Total count
 * উপরে দেখাবে "Total Notes: 3"
 * Input খালি হলে add হবে না
 * একটা Search input থাকবে — লিখলে সাথে সাথে note গুলো filter হবে
-* দুটো button — "All" "Important"
 * Note add করার সময় একটা checkbox থাকবে — "Important"
 * Important button click করলে শুধু important notes দেখাবে
 * Search আর Filter একসাথে কাজ করবে
