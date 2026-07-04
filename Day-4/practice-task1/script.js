@@ -24,7 +24,7 @@ function addNote(){
    // create list 
    const listItems = document.createElement('li');
    listItems.classList.add("bg-white", "flex", "justify-between", "items-center", "py-3", "px-4", "mb-4", "rounded-sm", "shadow-md", "gap-x-5" ,"group");
-   listItems.setAttribute('data-importent-notes', isImportent);
+   listItems.dataset.importentNotes = isImportent;
 
    // li elemenets
    listItems.innerHTML = `<span class="w-[350px] break-all">${star} ${noteBox.value}</span>
@@ -51,9 +51,12 @@ function deleteNote(element) {
 
 // importent notes
 importentNotesCheckBox.addEventListener('click', () => {
+    if(noteBox.value === ''){
+        alert('WRITE SOMETHING FIRST!')
+        return;
+    }
     isImportent = !isImportent;
-        importentNotesCheckBox.classList.toggle('text-[#ffd000]');
-
+    importentNotesCheckBox.classList.toggle('text-[#ffd000]');
 });
 
 allNote.addEventListener('click', ()=>{
@@ -65,6 +68,20 @@ allNote.addEventListener('click', ()=>{
 importentNotes.addEventListener('click', ()=> {
     document.querySelectorAll('li').forEach(li => {
         if(li.dataset.importentNotes === 'true') {
+            li.style.display = 'flex';
+        } else {
+            li.style.display = 'none';
+        }
+    });
+});
+
+searchBox.addEventListener('input', () => {
+    const searchText = searchBox.value.toLowerCase();
+
+    notesListContainer.querySelectorAll('li').forEach(li => {
+        const noteText = li.querySelector('span').textContent.toLowerCase();
+
+        if (noteText.includes(searchText)) {
             li.style.display = 'flex';
         } else {
             li.style.display = 'none';
