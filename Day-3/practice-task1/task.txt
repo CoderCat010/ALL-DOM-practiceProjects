@@ -1,6 +1,5 @@
 Voting App
-Data
-javascriptconst candidates = [
+const candidates = [
    {id: 1, name: "Option A", votes: 0},
    {id: 2, name: "Option B", votes: 0},
    {id: 3, name: "Option C", votes: 0},
