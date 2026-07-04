@@ -1,1 +1,0 @@
-// Task 5: একটা list আছে। প্রতিটা item এর পাশে "Delete" button থাকবে। Click করলে সেই item মুছে যাবে।

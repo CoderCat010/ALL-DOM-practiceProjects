@@ -1,0 +1,20 @@
+Voting App
+Data
+javascriptconst candidates = [
+   {id: 1, name: "Option A", votes: 0},
+   {id: 2, name: "Option B", votes: 0},
+   {id: 3, name: "Option C", votes: 0},
+];
+কী কী করতে হবে
+
+❶ সব candidate দেখাবে সাথে vote count
+❷ "Vote" button — click করলে সেই candidate এর vote 1 বাড়বে
+❸ যার vote সবচেয়ে বেশি তার পাশে 👑 দেখাবে (real-time আপডেট হবে)
+
+
+আসল Challenge
+❸ নম্বর —
+
+প্রতিবার vote দেওয়ার পর কীভাবে বুঝবে কে সবচেয়ে বেশি ভোট পেয়েছে?
+Array থেকে সবচেয়ে বড় value কীভাবে বের করবে?
+
