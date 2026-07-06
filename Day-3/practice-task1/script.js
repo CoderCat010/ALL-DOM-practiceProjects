@@ -1,9 +1,35 @@
-const crown1 = document.getElementById('crown-1');
-const crown2 = document.getElementById('crown-2');
-const crown3 = document.getElementById('crown-3');
-const voteCounter1 = document.getElementById('votes-1');
-const voteCounter2 = document.getElementById('votes-2');
-const voteCounter3 = document.getElementById('votes-3');
-const voteBtn1 = document.getElementById('vote-btn-1');
-const voteBtn2 = document.getElementById('vote-btn-2');
-const voteBtn3 = document.getElementById('vote-btn-3');
+// get all candidates 
+document.getElementById('all-candidates').addEventListener('click', (event) => {
+    const selectedItems = event.target;
+
+    // if user clicked vote button or not
+    if(!selectedItems.classList.contains('vote-btn')) return;
+    
+    // clicked card 
+    const candidateCard = selectedItems.closest('.candidate-card');
+    
+    // counter button
+    const counterSpan = candidateCard.querySelector('.vote-counterBtn');
+    let currentVotes = Number(counterSpan.textContent);
+    currentVotes++;
+    counterSpan.textContent = currentVotes;
+
+    // compare each one vote counts and get crown winner 
+    const allCounterValues = document.querySelectorAll('.vote-counterBtn');
+    const allVoteValues = [...allCounterValues].map((values) => Number(values.textContent));
+    const winner = Math.max(...allVoteValues);
+    
+    // winner 
+    const allCards = document.querySelectorAll('.candidate-card');
+
+    allCards.forEach((card) => {
+         const cardCounter = Number(card.querySelector('.vote-counterBtn').textContent);
+         const crown = card.querySelector('.crown-winner');
+
+         if(cardCounter === winner){
+            crown.classList.remove('hidden')
+         }else{
+            crown.classList.add('hidden')
+         }
+    })
+})
