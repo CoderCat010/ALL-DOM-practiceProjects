@@ -1,5 +1,0 @@
---------------> error: 1
-note app task tate amra button er svg te onclick add kore sei fucntion ta call kore kaj gulo korci kaj o korce and ei same kaj ba way ta ami habit tracker task tetew kore kaj gulo korte chaicilam but somossa hocce kintu keno? oitay kaj korle eita ken kaj kortece na? logic ta ashole ki?
-
-answer: somossa ta holo note app er jonno event listener add kora hoy ni only function diyee kaj kora hoyeche and amra jani je ak function er moddhe arek function niye kaj kora jay thats completly normal but habit tracker e amra event listner dici tar moddhe abar function dici duita alada system but kaj ta akoi kortece mane duitai kichu ekta khuje nidrishto akta kaj korbe bole so eivabe dujon ke same kaj dile ba korte bolle gondogol hoye jay ba conflict hoy, dui system ak sathe choltece tai jinishtaa wrong event listner er moddhe abar arekta system ba function niye kaj kora uchit na jodi seta akoi kaj er jonno hoy karon habit tracker e ami akbar container ke nidrishto kajta korte bolteci abar same kajtai button ke fucntion call kore bolteci...logic e gormel hocce ekhane so better way ekta system  declare korle seta diyei puro kajta complete kora
-
