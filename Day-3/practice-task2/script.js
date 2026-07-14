@@ -13,13 +13,11 @@ function trackerList_Render(each_one_data){
     each_one_data.forEach((data) => {
         const isCompleted = data.daysCompleted === data.target;
         let buttonText = 'Mark today done';
-        let disabledAttr = '';
-    
         if(isCompleted){
             buttonText = 'Completed 🎉';
-            disabledAttr = 'disabled';
         }
 
+        // ul list container
         trackers_container.innerHTML += `
         <div data-id="${data.id}" class="habit-card flex justify-between items-center border bg-[#2C2C2A] p-3 rounded-[10px]">
             <!-- title -->
@@ -30,11 +28,7 @@ function trackerList_Render(each_one_data){
 
             <!-- progress button -->
             <div>
-                <button 
-    onclick="progress_btn(this)" 
-    class="mark-today-done py-1 px-2 shadow-sm border border-[#ffffff1a] rounded-md text-[#fff] font-medium text-[14px]" 
-    ${disabledAttr}
->${buttonText}</button>
+                <button onclick="progress_btn(this)" class="mark-today-done py-1 px-2 shadow-sm border border-[#ffffff1a] rounded-md text-[#fff] font-medium text-[14px]">${buttonText}</button>
             </div>
         </div>`
     })
@@ -52,6 +46,5 @@ function progress_btn(progress){
     if(habitObj.daysCompleted < habitObj.target){
         habitObj.daysCompleted++;
     }
-
     trackerList_Render(habitsTracker);
 }
