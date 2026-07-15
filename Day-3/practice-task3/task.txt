@@ -1,0 +1,14 @@
+Task E5 — Contact List 
+books = [
+   {id: 1, title: "Atomic Habits", price: 450, bought: false},
+   {id: 2, title: "Clean Code", price: 600, bought: false},
+   {id: 3, title: "1984", price: 300, bought: false},
+];
+
+HTML এ শুধু
+html<div id="books-container"></div>
+
+কী করতে হবে:
+❶ সব book render হবে — title, price
+❷ "Mark as Bought" button — click করলে bought = true হবে, নামের উপর line-through style আসবে
+❸ উপরে দেখাবে — "Total: ৳1350 | Spent: ৳0" (bought বইগুলোর দাম যোগ করে)
