@@ -8,14 +8,37 @@
     <!-- css link -->
      <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-amber-50 min-h-screen flex items-center justify-center">
 
     <!-- main container -->
-     <div>
+    <div id="trackers-container" class="py-5 px-5 w-[400px] space-y-5 bg-[#fde68a98]">
+        <!-- 
+        calculation
+          -->
+        <div class="flex justify-between text-black font-semibold" id="calculation">
+            <h2>Total:$ <span>1355</span></h2>
+            <h2>Spent:$ <span>450</span></h2>
+        </div>
 
-     </div>
-    
+        <!-- 
+        book items container
+        -->
+        <div id="books-container">
+            <div class="habit-card flex justify-between items-center shadow-md bg-amber-200 p-3 rounded-[10px]">
+                <!-- title -->
+                <div>
+                    <h2 class="text-[#000] font-semibold">Atomic Habit</h2>
+                    <p class="text-[#000000c4] font-medium">$ 450</p>
+                </div>
 
+                <!-- progress button -->
+                <div>
+                    <button class="mark-today-done py-1 px-2 shadow-sm border border-[#0000001a] rounded-md text-[#000] font-medium text-[14px]">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     
 
      <!-- js link -->
       <script src="./script.js"></script>
