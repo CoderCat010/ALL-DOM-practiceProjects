@@ -4,7 +4,7 @@ const habitsTracker = [
    {id: 3, name: "Read Book", daysCompleted: 1, target: 3},
 ];
 
-// elements
+// elements 
 const trackers_container = document.getElementById('trackers-container');
 
 // render all data 
