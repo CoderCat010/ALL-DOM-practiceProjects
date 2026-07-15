@@ -1,4 +1,4 @@
-Habit Tracker
+Task -- Habit Tracker
 habits = [
    {id: 1, name: "Drink Water", daysCompleted: 3, target: 7},
    {id: 2, name: "Exercise", daysCompleted: 5, target: 7},

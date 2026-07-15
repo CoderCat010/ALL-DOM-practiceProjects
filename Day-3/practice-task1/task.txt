@@ -1,4 +1,4 @@
-Voting App
+Task - Voting App
 const candidates = [
    {id: 1, name: "Option A", votes: 0},
    {id: 2, name: "Option B", votes: 0},
