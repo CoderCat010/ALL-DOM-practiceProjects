@@ -13,17 +13,28 @@ function renderItems(booksData){
 
     // added each data dynamically
     booksData.forEach((data) => {
+         // set default value for button
+        let bookCard = '';
+        let bookTitle = '';
+        let btnText = 'Mark as Bought';
+        if(data.bought){
+            btnText = 'Bought ✅';
+            bookTitle = 'line-through';
+            bookCard = 'bg-[#00ff152d]';
+        }
+
+        // book container' each one card
         bookItemsContainer.innerHTML += `
-        <div data-id="${data.id}" class="book-card flex justify-between items-center shadow-md bg-amber-200 p-3 rounded-[10px]">
+        <div data-id="${data.id}" class="book-card flex justify-between items-center shadow-md bg-amber-200 p-3 rounded-[10px] ${bookCard}">
         <!-- title -->
             <div>
-                <h2 class="text-[#000] font-semibold">${data.title}</h2>
+                <h2 class="text-[#000] font-semibold ${bookTitle}">${data.title}</h2>
                 <p class="text-[#000000c4] font-medium">$ ${data.price}</p>
             </div>
 
         <!-- progress button -->
             <div>
-                <button class="mark-today-done py-1 px-2 shadow-sm border border-[#0000001a] rounded-md text-[#000] font-medium text-[14px]">Mark as Bought</button>
+                <button class="mark-today-done py-1 px-2 shadow-sm border border-[#0000001a] rounded-md text-[#000] font-medium text-[14px]">${btnText}</button>
             </div>
         </div>`
     });
@@ -34,9 +45,15 @@ renderItems(bookShop);
 // add event listener to books container 
 bookItemsContainer.addEventListener(('click'), ((event) => {
     const selectedElm = event.target;
-    if(!selectedElm.tagName === 'BUTTON') return;
+    if(selectedElm.tagName !== 'BUTTON') return;
     
     // clicked button's card 
     const card = selectedElm.closest('.book-card');
+    // each one card's id
     const bookCardsId = Number(card.dataset.id);
+
+    // by those card's id find data from array of object
+    const bookObj = bookShop.find((books) => books.id === bookCardsId);
+    bookObj.bought = true;
+    renderItems(bookShop);
 }))
