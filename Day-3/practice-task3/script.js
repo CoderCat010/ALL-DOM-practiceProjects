@@ -14,7 +14,7 @@ function renderItems(booksData){
     // added each data dynamically
     booksData.forEach((data) => {
         bookItemsContainer.innerHTML += `
-        <div class="book-card flex justify-between items-center shadow-md bg-amber-200 p-3 rounded-[10px]">
+        <div data-id="${data.id}" class="book-card flex justify-between items-center shadow-md bg-amber-200 p-3 rounded-[10px]">
         <!-- title -->
             <div>
                 <h2 class="text-[#000] font-semibold">${data.title}</h2>
@@ -36,4 +36,7 @@ bookItemsContainer.addEventListener(('click'), ((event) => {
     const selectedElm = event.target;
     if(!selectedElm.tagName === 'BUTTON') return;
     
+    // clicked button's card 
+    const card = selectedElm.closest('.book-card');
+    console.log(card)
 }))
