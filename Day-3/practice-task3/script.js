@@ -38,5 +38,5 @@ bookItemsContainer.addEventListener(('click'), ((event) => {
     
     // clicked button's card 
     const card = selectedElm.closest('.book-card');
-    console.log(card)
+    const bookCardsId = Number(card.dataset.id);
 }))
