@@ -4,11 +4,14 @@ bookShop = [
    {id: 3, title: "1984", price: 300, bought: false},
 ];
 
+// books container
 const bookItemsContainer = document.getElementById('bookItems-Container');
 
 // render 
 function renderItems(booksData){
     bookItemsContainer.innerHTML = '';
+
+    // added each data dynamically
     booksData.forEach((data) => {
         bookItemsContainer.innerHTML += `
         <div class="book-card flex justify-between items-center shadow-md bg-amber-200 p-3 rounded-[10px]">
@@ -20,9 +23,17 @@ function renderItems(booksData){
 
         <!-- progress button -->
             <div>
-                <button class="mark-today-done py-1 px-2 shadow-sm border border-[#0000001a] rounded-md text-[#000] font-medium text-[14px]">Buy</button>
+                <button class="mark-today-done py-1 px-2 shadow-sm border border-[#0000001a] rounded-md text-[#000] font-medium text-[14px]">Mark as Bought</button>
             </div>
         </div>`
     });
 }
 renderItems(bookShop);
+
+
+// add event listener to books container 
+bookItemsContainer.addEventListener(('click'), ((event) => {
+    const selectedElm = event.target;
+    if(!selectedElm.tagName === 'BUTTON') return;
+    
+}))
