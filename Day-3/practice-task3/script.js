@@ -6,14 +6,17 @@ bookShop = [
 
 // books container
 const bookItemsContainer = document.getElementById('bookItems-Container');
+let spent = document.getElementById('spent');
 
 // render 
 function renderItems(booksData){
+    // set default values
     bookItemsContainer.innerHTML = '';
+    spent.textContent = 0;
 
     // added each data dynamically
     booksData.forEach((data) => {
-         // set default value for button
+         // set default value for button & styles
         let bookCard = '';
         let bookTitle = '';
         let btnText = 'Mark as Bought';
@@ -21,6 +24,7 @@ function renderItems(booksData){
             btnText = 'Bought ✅';
             bookTitle = 'line-through';
             bookCard = 'bg-[#00ff152d]';
+            spent.textContent = Number(spent.textContent) + data.price;
         }
 
         // book container' each one card
