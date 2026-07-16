@@ -8,11 +8,24 @@
     <!-- css link -->
      <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-amber-50 min-h-screen flex items-center justify-center">
+<body class="bg-amber-100 min-h-screen flex items-center justify-center">
 
     <!-- main container -->
-    <div id="dashboard" class="py-5 px-5 w-[400px] space-y-5 bg-[#fde68a98]">
-        
+    <div class="p-10 w-[500px] bg-[#fde68a98]">
+        <!-- 
+        calculation
+        -->
+        <div class="flex justify-between text-black font-semibold mb-5" id="calculation">
+            <h2>Total:$ <span>1355</span></h2>
+            <h2>Spent:$ <span>450</span></h2>
+        </div>
+
+        <!-- 
+        book items container
+        -->
+        <div class="space-y-5" id="bookItems-Container">
+             <!-- data will be added dynamically -->
+        </div>
     </div>
      
 
