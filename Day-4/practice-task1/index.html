@@ -17,13 +17,31 @@
         <button class="bg-emerald-200 py-2 px-5 font-medium rounded-full shadow-sm">Action</button>
      </div>
 
-    <!-- Movie Stats Container -->
-     <div id="movie-stats-container" class="bg-cyan-50 w-[200px] h-[300px] rounded-tl-[50%] rounded-bl-[50%] rounded-tr-lg rounded-br-lg shadow-sm flex flex-col pl-10 justify-center">
-        <h1 class="font-semibold text-xl border-[#000] text-center mb-8">History</h1>
-        <button class="font-semibold text-xl py-2 border-t border-[#00000013] text-left">Total: 0</button>
-        <button class="font-semibold text-xl py-2 border-t border-b border-[#00000013] text-left">Watched: 0</button>
-     </div>
+     <!-- main container -->
+     <div class="flex justify-evenly items-center mt-[50px]">
+        <!-- Movie Stats Container -->
+        <div id="movie-stats-container" class="bg-cyan-50 w-[200px] h-[300px] rounded-tl-[50%] rounded-bl-[50%] rounded-tr-lg rounded-br-lg shadow-sm flex flex-col pl-10 justify-center">
+            <h1 class="font-semibold text-xl border-[#000] text-center mb-8">History</h1>
+            <button class="font-semibold text-xl py-2 border-t border-[#00000013] text-left">Total: 0</button>
+            <button class="font-semibold text-xl py-2 border-t border-b border-[#00000013] text-left">Watched: 0</button>
+        </div>
 
+        <!-- all movies collection -->
+        <div class="grid grid-cols-3 gap-10" id="all-movies-collection">
+            <!-- movie cards -->
+            <div class="text-center bg-[#00ffdd2d] shadow-md rounded-xl w-[250px] py-5 space-y-5">
+                <!-- title -->
+                <h2 class="font-semibold text-2xl">Inception</h2>
+                <!-- genre & rating -->
+                <div class="flex justify-center gap-x-5">
+                    <h3>Genre: Sci-Fi</h3>
+                    <h3>Rating: 8.8</h3>
+                </div>
+                <!-- watch button -->
+                <button class="bg-emerald-300 py-2 px-3 rounded-md">Tap To Watch</button>
+            </div>
+        </div>
+    </div>
     
 
     <!-- js link -->
