@@ -1,16 +1,18 @@
 Task — Movie Watchlist
 const movies = [
-   {id: 1, title: "Inception", rating: 8.8, watched: false},
-   {id: 2, title: "The Dark Knight", rating: 9.0, watched: false},
-   {id: 3, title: "Interstellar", rating: 8.6, watched: false},
-   {id: 4, title: "Parasite", rating: 8.6, watched: false},
+   {id: 1, title: "Inception", genre: "Sci-Fi", rating: 8.8, watched: false},
+   {id: 2, title: "The Dark Knight", genre: "Action", rating: 9.0, watched: false},
+   {id: 3, title: "Interstellar", genre: "Sci-Fi", rating: 8.6, watched: false},
+   {id: 4, title: "Parasite", genre: "Thriller", rating: 8.6, watched: false},
 ];
-❶ Render সব movie দেখাবে — title, rating
 
-❷ Mark as Watched Button click করলে সেই movie এর watched = true হবে
-Watched হয়ে গেলে card এ একটা ✅ icon বা আলাদা রঙ দেখাবে
+কী করতে হবে
+❶ Render সব movie দেখাবে — title, genre, rating, একটা "Mark as Watched" button
 
-❸ Sort — এটাই নতুন Challenge দুটো button — "Highest Rated" "Lowest Rated"
-Click করলে rating অনুযায়ী list sort হয়ে আবার দেখাবে
+❷ Mark as Watched button Click করলে সেই movie এর watched = true হবে
+Watched হলে card এর style আলাদা হবে (যেমন হালকা রঙ, ✅ চিহ্ন)
 
-❹ Stats উপরে দেখাবে — "Total: 4 | Watched: 1"
+❸ Genre Filter তিনটা button — "All", "Sci-Fi", "Action" (অথবা যেই genre গুলো আছে সেগুলো)
+Click করলে শুধু সেই genre এর movie গুলো দেখাবে
+
+❹ Stats উপরে দেখাবে — "Total: 4 | Watched: 0"
