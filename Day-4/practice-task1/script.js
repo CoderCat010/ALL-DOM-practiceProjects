@@ -4,3 +4,13 @@ const movies = [
    {id: 3, title: "Interstellar", genre: "Sci-Fi", rating: 8.6, watched: false},
    {id: 4, title: "Parasite", genre: "Thriller", rating: 8.6, watched: false},
 ];
+
+// genre filter 
+const genreFilter = document.getElementById('genre-filter-container');
+
+// movie stats counter 
+const totalCounter = document.getElementById('total-counter');
+const watchedCounter = document.getElementById('watched-counter');
+
+// movie collections container 
+const moviesCollection = document.getElementById('all-movies-collection');
