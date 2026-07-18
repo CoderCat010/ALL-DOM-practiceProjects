@@ -6,8 +6,10 @@ const movies = [
    {id: 4, title: "The Great Wall", genre: "Fantasy", rating: 8.2, watched: false}
 ];
 
+let duplicateGenre = [];
+
 // genre filter 
-const genreFilter = document.getElementById('genre-filter-container');
+const genreContainer = document.getElementById('genre-filter-container');
 
 // movie stats counter 
 const totalCounter = document.getElementById('total-counter');
@@ -19,7 +21,24 @@ const moviesCollection = document.getElementById('all-movies-collection');
 
 // rendering 
 function renderingAllItems(moviesData){
-    moviesData.forEach(data => {
+    // get all genre from array
+    const moviesGenre = movies.map((movie) => movie.genre);
+    // store unique genre from duplicate genre items
+    moviesGenre.forEach((items) => {
+        if(!duplicateGenre.includes(items)){
+            duplicateGenre.push(items);
+        }
+    });
+    // render all genre buttons
+    duplicateGenre.forEach(genre => {
+        genreContainer.innerHTML += `
+        <button class="bg-emerald-200 py-2 px-5 font-medium rounded-full shadow-sm">${genre}</button>
+    `
+    })
+
+
+    // render all movies collection
+    moviesData.forEach(data => {     
         moviesCollection.innerHTML += `
         <!-- movie cards -->
             <div class="text-center bg-[#00ffdd2d] shadow-md rounded-xl w-[250px] py-5 space-y-5">
@@ -31,7 +50,7 @@ function renderingAllItems(moviesData){
                     <h3>Rating: ${data.rating}</h3>
                 </div>
                 <!-- watch button -->
-                <button class="bg-emerald-300 py-2 px-3 rounded-md">Tap To Watch</button>
+                <button class="bg-emerald-300 py-2 px-3 rounded-md font-medium text-[#000000be]">Tap To Watch</button>
             </div>
         `
     });
