@@ -12,7 +12,7 @@
 
     <!-- movie genre filter container -->
      <div id="genre-filter-container" class="flex justify-center items-center gap-x-10">
-        <button class="bg-cyan-50 py-2 px-3 font-medium rounded-full shadow-sm">All</button>
+        <button data-genre="${genre}" class="bg-cyan-50 py-2 px-3 font-medium rounded-full shadow-sm genre-btn">All</button>
         <!-- data will be added dynamically -->
      </div>
 
@@ -21,8 +21,8 @@
         <!-- Movie Stats Container -->
         <div class="bg-cyan-50 w-[200px] h-[300px] rounded-tl-[50%] rounded-bl-[50%] rounded-tr-lg rounded-br-lg shadow-sm flex flex-col pl-10 justify-center">
             <h1 class="font-semibold text-xl border-[#000] text-center mb-8">History</h1>
-            <button id="total-counter" class="font-semibold text-xl py-2 border-t border-[#00000013] text-left">Total: 0</button>
-            <button id="watched-counter" class="font-semibold text-xl py-2 border-t border-b border-[#00000013] text-left">Watched: 0</button>
+            <button id="total-counter" class="font-semibold text-xl py-2 border-t border-[#00000013] text-left cursor-default">Total: 0</button>
+            <button id="watched-counter" class="font-semibold text-xl py-2 border-t border-b border-[#00000013] text-left cursor-default">Watched: 0</button>
         </div>
 
         <!-- all movies collection -->

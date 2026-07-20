@@ -21,7 +21,7 @@ const moviesCollection = document.getElementById('all-movies-collection');
 
 // rendering 
 function renderingAllItems(moviesData){
-    // get all genre from array
+    //-----> get all genre from array
     const moviesGenre = movies.map((movie) => movie.genre);
     // store unique genre from duplicate genre items
     moviesGenre.forEach((items) => {
@@ -32,12 +32,11 @@ function renderingAllItems(moviesData){
     // render all genre buttons
     duplicateGenre.forEach(genre => {
         genreContainer.innerHTML += `
-        <button class="bg-emerald-200 py-2 px-5 font-medium rounded-full shadow-sm">${genre}</button>
+        <button data-genre=${genre} class="bg-emerald-200 py-2 px-5 font-medium rounded-full shadow-sm genre-btn">${genre}</button>
     `
-    })
+    });
 
-
-    // render all movies collection
+    //-----> render all movies collection
     moviesData.forEach(data => {     
         moviesCollection.innerHTML += `
         <!-- movie cards -->
@@ -56,3 +55,11 @@ function renderingAllItems(moviesData){
     });
 }
 renderingAllItems(movies);
+
+
+//-----> add event delegation on genre button's container 
+genreContainer.addEventListener(('click'), (event) => {
+    const selectedItems = event.target;
+    if(!selectedItems.classList.contains('genre-btn')) return;
+    const genreData = selectedItems.dataset.genre;
+})
