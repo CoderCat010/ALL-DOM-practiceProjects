@@ -7,7 +7,6 @@ const movies = [
 ];
 
 let duplicateGenre = [];
-let watchedMovies = 0;
 
 // genre filter 
 const genreContainer = document.getElementById('genre-filter-container');
@@ -23,6 +22,7 @@ function renderingAllItems(moviesData){
     moviesCollection.innerHTML = '';
     genreContainer.innerHTML = '';
     totalCounter.textContent = `Total: ${movies.length}`;
+    watchedCounter.textContent = movies.filter(movie => movie.watched).length;
 
     //-----> get all genre from array
     const moviesGenre = movies.map((movie) => movie.genre);
@@ -85,9 +85,6 @@ genreContainer.addEventListener(('click'), (event) => {
 
 //-----> add event listener on tap to watch button's parent 
 moviesCollection.addEventListener(('click'), (event) => {
-    watchedMovies++;
-    watchedCounter.textContent = watchedMovies;
-    
     const selectedElm = event.target;
     // clicked button
     if(selectedElm.tagName !== 'BUTTON') return;
