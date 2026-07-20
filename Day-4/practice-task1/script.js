@@ -49,7 +49,7 @@ function renderingAllItems(moviesData){
             tapToWatch = 'Watched ✅';
             btn = 'text-[#000]';
         }
-         
+        // movies container
         moviesCollection.innerHTML += `
         <!-- movie cards -->
             <div data-id=${data.id} class="movie-card text-center bg-[#00ffdd2d] shadow-md rounded-xl w-[250px] py-5 space-y-5">
@@ -95,4 +95,4 @@ moviesCollection.addEventListener(('click'), (event) => {
     const moviesObj = movies.find(obj => obj.id === moviesId);
     moviesObj.watched = true;
     renderingAllItems(movies);
-})
+});
