@@ -21,6 +21,9 @@ const moviesCollection = document.getElementById('all-movies-collection');
 
 // rendering 
 function renderingAllItems(moviesData){
+    moviesCollection.innerHTML = '';
+    genreContainer.innerHTML = '';
+
     //-----> get all genre from array
     const moviesGenre = movies.map((movie) => movie.genre);
     // store unique genre from duplicate genre items
@@ -30,6 +33,7 @@ function renderingAllItems(moviesData){
         }
     });
     // render all genre buttons
+    genreContainer.innerHTML += `<button data-genre="all" class="bg-cyan-50 py-2 px-3 font-medium rounded-full shadow-sm genre-btn">All</button>`;
     duplicateGenre.forEach(genre => {
         genreContainer.innerHTML += `
         <button data-genre=${genre} class="bg-emerald-200 py-2 px-5 font-medium rounded-full shadow-sm genre-btn">${genre}</button>
@@ -62,4 +66,6 @@ genreContainer.addEventListener(('click'), (event) => {
     const selectedItems = event.target;
     if(!selectedItems.classList.contains('genre-btn')) return;
     const genreData = selectedItems.dataset.genre;
+    const filteredMovies = movies.filter(movie => movie.genre === genreData || genreData === 'all');
+    renderingAllItems(filteredMovies);
 })
