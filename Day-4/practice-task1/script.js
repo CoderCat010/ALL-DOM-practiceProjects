@@ -3,18 +3,17 @@ const movies = [
    {id: 2, title: "The Dark Knight", genre: "Action", rating: 9.0, watched: false},
    {id: 3, title: "Interstellar", genre: "Sci-Fi", rating: 8.6, watched: false},
    {id: 4, title: "Parasite", genre: "Thriller", rating: 8.6, watched: false},
-   {id: 4, title: "The Great Wall", genre: "Fantasy", rating: 8.2, watched: false}
+   {id: 5, title: "The Great Wall", genre: "Fantasy", rating: 8.2, watched: false}
 ];
 
 let duplicateGenre = [];
+let watchedMovies = 0;
 
 // genre filter 
 const genreContainer = document.getElementById('genre-filter-container');
-
 // movie stats counter 
 const totalCounter = document.getElementById('total-counter');
 const watchedCounter = document.getElementById('watched-counter');
-
 // movie collections container 
 const moviesCollection = document.getElementById('all-movies-collection');
 
@@ -23,6 +22,7 @@ const moviesCollection = document.getElementById('all-movies-collection');
 function renderingAllItems(moviesData){
     moviesCollection.innerHTML = '';
     genreContainer.innerHTML = '';
+    totalCounter.textContent = `Total: ${movies.length}`;
 
     //-----> get all genre from array
     const moviesGenre = movies.map((movie) => movie.genre);
@@ -41,10 +41,18 @@ function renderingAllItems(moviesData){
     });
 
     //-----> render all movies collection
-    moviesData.forEach(data => {     
+    moviesData.forEach(data => { 
+        // watch button 
+        let tapToWatch = 'Tap to Watch';  
+        let btn = ''
+        if(data.watched){
+            tapToWatch = 'Watched ✅';
+            btn = 'text-[#000]';
+        }
+         
         moviesCollection.innerHTML += `
         <!-- movie cards -->
-            <div class="text-center bg-[#00ffdd2d] shadow-md rounded-xl w-[250px] py-5 space-y-5">
+            <div data-id=${data.id} class="movie-card text-center bg-[#00ffdd2d] shadow-md rounded-xl w-[250px] py-5 space-y-5">
                 <!-- title -->
                 <h2 class="font-semibold text-2xl">${data.title}</h2>
                 <!-- genre & rating -->
@@ -53,7 +61,7 @@ function renderingAllItems(moviesData){
                     <h3>Rating: ${data.rating}</h3>
                 </div>
                 <!-- watch button -->
-                <button class="bg-emerald-300 py-2 px-3 rounded-md font-medium text-[#000000be]">Tap To Watch</button>
+                <button class="tap-to-watch bg-emerald-300 py-2 px-3 rounded-md font-medium text-[#000000be] ${btn}">${tapToWatch}</button>
             </div>
         `
     });
@@ -64,8 +72,30 @@ renderingAllItems(movies);
 //-----> add event delegation on genre button's container 
 genreContainer.addEventListener(('click'), (event) => {
     const selectedItems = event.target;
+    // clicked button
     if(!selectedItems.classList.contains('genre-btn')) return;
+    // store clicked button's data 
     const genreData = selectedItems.dataset.genre;
+
+    // get selected genre's movie card and display 
     const filteredMovies = movies.filter(movie => movie.genre === genreData || genreData === 'all');
     renderingAllItems(filteredMovies);
+});
+
+
+//-----> add event listener on tap to watch button's parent 
+moviesCollection.addEventListener(('click'), (event) => {
+    watchedMovies++;
+    watchedCounter.textContent = watchedMovies;
+    
+    const selectedElm = event.target;
+    // clicked button
+    if(selectedElm.tagName !== 'BUTTON') return;
+
+    // movie card 
+    const movieCard = selectedElm.closest('.movie-card');
+    const moviesId = Number(movieCard.dataset.id);
+    const moviesObj = movies.find(obj => obj.id === moviesId);
+    moviesObj.watched = true;
+    renderingAllItems(movies);
 })
