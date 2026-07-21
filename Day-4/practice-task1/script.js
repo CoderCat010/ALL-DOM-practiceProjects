@@ -65,7 +65,7 @@ function renderingAllItems(moviesData){
             </div>
         `
     });
-}
+};
 renderingAllItems(movies);
 
 

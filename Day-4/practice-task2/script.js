@@ -14,6 +14,9 @@ let duplicateButton = [];
 
 // render all items
 function renderingAllItems(employeesData){
+    employeesContainer.innerHTML = '';
+    departmentFilterContainer.innerHTML = '';
+
     //-----> render each one depertment buttons
     const departmentData = employees.map((data) => data.department);
     departmentData.forEach((btns) => {
@@ -22,16 +25,16 @@ function renderingAllItems(employeesData){
         }
     });
     departmentFilterContainer.innerHTML += `
-    <button class="bg-indigo-100 text-indigo-700 py-2 px-4 font-medium rounded-full shadow-sm">All</button>
+    <button data-btn="All" class="department-btn bg-indigo-100 text-indigo-700 py-2 px-4 font-medium rounded-full shadow-sm">All</button>
     `;
     duplicateButton.forEach((department) => {
         departmentFilterContainer.innerHTML += `
-        <button class="bg-white text-slate-600 py-2 px-4 font-medium rounded-full shadow-sm border border-slate-200">${department}</button>
+        <button data-btn=${department} class="department-btn bg-white text-slate-600 py-2 px-4 font-medium rounded-full shadow-sm border border-slate-200">${department}</button>
         `;
     });
 
     //-----> render each one employees card
-    employees.forEach((employee) => {
+    employeesData.forEach((employee) => {
         employeesContainer.innerHTML += `
         <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex justify-between items-center">
             <!-- employee card content -->
@@ -50,4 +53,17 @@ function renderingAllItems(employeesData){
         `
     });
 }
-renderingAllItems(employees)
+renderingAllItems(employees);
+
+
+// added even listener department filter container
+departmentFilterContainer.addEventListener(('click'), (event) => {
+    const selectedBtn = event.target;
+    if(!selectedBtn.classList.contains('department-btn')) return;
+    
+    // get clicked button's data 
+    const department = selectedBtn.dataset.btn;
+    const filteredBtn = employees.filter((dept) => dept.department === department || department === 'All');
+    renderingAllItems(filteredBtn);
+    
+});
