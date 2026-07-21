@@ -65,5 +65,4 @@ departmentFilterContainer.addEventListener(('click'), (event) => {
     const department = selectedBtn.dataset.btn;
     const filteredBtn = employees.filter((dept) => dept.department === department || department === 'All');
     renderingAllItems(filteredBtn);
-    
 });
