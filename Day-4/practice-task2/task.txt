@@ -1,4 +1,4 @@
-Task -- Employee Manager
+Task — Employee Manager
 const employees = [
    {id: 1, name: "Rahim", department: "IT", salary: 40000, active: true},
    {id: 2, name: "Karim", department: "HR", salary: 30000, active: true},
@@ -7,11 +7,12 @@ const employees = [
 ];
 
 কী করতে হবে:
-❶ Render সব Employee দেখাবে — নাম, Department, Salary, একটা "Deactivate/Activate" Button
+❶ Render সব Employee দেখাবে — নাম, Department, Salary, Active/Inactive Status
 
-❷ Department Filter Data থেকে Dynamic Department Button বানাতে হবে ("All" সহ) — ঠিক Movie এর Genre Filter এর মতো Pattern
+❷ Department Filter Data থেকে Dynamic ভাবে Department Button বানাবে
 
-❸ Active/Inactive Toggle Button Click করলে সেই Employee এর active উল্টে যাবে (true↔false)
-Active হলে Button এ "Deactivate" লেখা, Inactive হলে "Activate"
+❸ Search Input এ নাম লিখলে সাথে সাথে Filter হবে (Button ছাড়াই — Typing করার সাথে সাথে)
 
-❸ Total Salary নিচে দেখাবে — "Total Salary: ৳155000" (শুধু Active Employee দের Salary যোগ করে)
+❹ Toggle Active/Inactive একটা Button — Click করলে Active থেকে Inactive হবে, আবার Click করলে উল্টো (Toggle)
+
+❺ Total Salary যা যা এই মুহূর্তে Screen এ দেখানো হচ্ছে (Filter/Search এর পর), তাদের Salary যোগফল দেখাবে
