@@ -10,7 +10,6 @@ const employees = [
    {id: 3, name: "Jamal", department: "IT", salary: 50000, active: false},
    {id: 4, name: "Sadia", department: "Finance", salary: 35000, active: true},
 ];
-
 let duplicateButton = [];
 
 // render all items
@@ -36,8 +35,17 @@ function renderingAllItems(employeesData){
 
     //-----> render each one employees card
     employeesData.forEach((employee) => {
+        //----
+        let isActive = 'Active';
+        let btn = '';
+        if(!employee.active){
+            isActive = 'Deactivate';
+            btn = 'bg-rose-100 text-rose-700';
+        }
+
+        // each one employee card
         employeesContainer.innerHTML += `
-        <div class="employee-card bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex justify-between items-center">
+        <div data-id=${employee.id} class="employee-card bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex justify-between items-center">
             <!-- employee card content -->
             <div>
                 <h2 class="text-lg font-semibold text-slate-800">${employee.name}</h2>
@@ -49,7 +57,7 @@ function renderingAllItems(employeesData){
             </div>
 
             <!-- stats button -->
-            <button class="bg-emerald-100 text-emerald-700 text-sm font-medium py-1.5 px-3 rounded-md">Active</button>
+            <button class="bg-emerald-100 text-emerald-700 text-sm font-medium py-1.5 px-3 rounded-md ${btn}">${isActive}</button>
         </div>
         `
     });
@@ -74,5 +82,18 @@ searchInput.addEventListener(('input'), (event) => {
     const searchText = searchInput.value.toLowerCase();
     const filteredEmployee = employees.filter((name) => name.name.toLocaleLowerCase().includes(searchText));
     renderingAllItems(filteredEmployee);
-})
+});
 
+// active/ inactive toggle button
+employeesContainer.addEventListener(('click'), (event) => {
+    const selectedElm = event.target;
+    // clicked button
+    if(selectedElm.tagName !== 'BUTTON') return;
+
+    // movie card 
+    const employeeCard = selectedElm.closest('.employee-card');
+    const employeesId = Number(employeeCard.dataset.id);
+    const employeeObj = employees.find(obj => obj.id === employeesId);
+    employeeObj.active = !employeeObj.active;
+    renderingAllItems(employees);
+});
