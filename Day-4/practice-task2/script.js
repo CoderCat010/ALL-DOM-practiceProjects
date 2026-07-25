@@ -1,6 +1,7 @@
 // all elements
 const employeesContainer = document.getElementById('employees-container');
 const departmentFilterContainer = document.getElementById('department-filter-container');
+const searchInput = document.getElementById('search-input');
 
 // data
 const employees = [
@@ -36,7 +37,7 @@ function renderingAllItems(employeesData){
     //-----> render each one employees card
     employeesData.forEach((employee) => {
         employeesContainer.innerHTML += `
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex justify-between items-center">
+        <div class="employee-card bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex justify-between items-center">
             <!-- employee card content -->
             <div>
                 <h2 class="text-lg font-semibold text-slate-800">${employee.name}</h2>
@@ -56,7 +57,7 @@ function renderingAllItems(employeesData){
 renderingAllItems(employees);
 
 
-// added even listener department filter container
+// added even listener department filter container for each one button
 departmentFilterContainer.addEventListener(('click'), (event) => {
     const selectedBtn = event.target;
     if(!selectedBtn.classList.contains('department-btn')) return;
@@ -66,3 +67,12 @@ departmentFilterContainer.addEventListener(('click'), (event) => {
     const filteredBtn = employees.filter((dept) => dept.department === department || department === 'All');
     renderingAllItems(filteredBtn);
 });
+
+
+// added event listener on input box to search employees by name
+searchInput.addEventListener(('input'), (event) => {
+    const searchText = searchInput.value.toLowerCase();
+    const filteredEmployee = employees.filter((name) => name.name.toLocaleLowerCase().includes(searchText));
+    renderingAllItems(filteredEmployee);
+})
+
