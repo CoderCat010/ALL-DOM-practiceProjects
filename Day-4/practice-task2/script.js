@@ -66,8 +66,8 @@ function renderingAllItems(employeesData){
 
         // count total salary 
         salaryCounter += employee.salary;
-        totalSalary.textContent = `Total Salary: $${salaryCounter}`;
     });
+    totalSalary.textContent = `Total Salary: $${salaryCounter}`;
 }
 renderingAllItems(employees);
 
