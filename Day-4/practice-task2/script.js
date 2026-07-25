@@ -2,6 +2,7 @@
 const employeesContainer = document.getElementById('employees-container');
 const departmentFilterContainer = document.getElementById('department-filter-container');
 const searchInput = document.getElementById('search-input');
+const totalSalary = document.getElementById('total-salary');
 
 // data
 const employees = [
@@ -11,11 +12,13 @@ const employees = [
    {id: 4, name: "Sadia", department: "Finance", salary: 35000, active: true},
 ];
 let duplicateButton = [];
+let salaryCounter = 0;
 
 // render all items
 function renderingAllItems(employeesData){
     employeesContainer.innerHTML = '';
     departmentFilterContainer.innerHTML = '';
+    salaryCounter = 0;
 
     //-----> render each one depertment buttons
     const departmentData = employees.map((data) => data.department);
@@ -59,7 +62,11 @@ function renderingAllItems(employeesData){
             <!-- stats button -->
             <button class="bg-emerald-100 text-emerald-700 text-sm font-medium py-1.5 px-3 rounded-md ${btn}">${isActive}</button>
         </div>
-        `
+        `;
+
+        // count total salary 
+        salaryCounter += employee.salary;
+        totalSalary.textContent = `Total Salary: $${salaryCounter}`;
     });
 }
 renderingAllItems(employees);
@@ -97,3 +104,4 @@ employeesContainer.addEventListener(('click'), (event) => {
     employeeObj.active = !employeeObj.active;
     renderingAllItems(employees);
 });
+
