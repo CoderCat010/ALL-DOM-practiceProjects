@@ -15,3 +15,19 @@ const products = [
 ❹ Toggle Stock — একটা Button — Click করলে "In Stock" থেকে "Out of Stock" হবে (Toggle)
 
 ❺ Total Value — যা Screen এ দেখানো হচ্ছে, তাদের Price যোগফল দেখাবে 
+
+
+
+
+
+<div class="bg-[#1e293b] rounded-lg border border-[#334155] p-5 opacity-60">
+            <div class="flex justify-between items-start mb-3">
+                <h2 class="text-base font-semibold text-white">Milk Pack</h2>
+                <span class="text-[11px] uppercase tracking-wide bg-rose-500/15 text-rose-400 py-1 px-2 rounded">Out of Stock</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-3">Grocery</p>
+            <div class="flex justify-between items-center">
+                <span class="text-teal-400 font-bold">৳80</span>
+                <button class="text-xs font-medium text-slate-300 border border-[#334155] py-1 px-3 rounded-md hover:bg-[#334155]">Toggle Stock</button>
+            </div>
+        </div>
