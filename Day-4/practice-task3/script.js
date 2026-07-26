@@ -35,7 +35,7 @@ function rendering(eachOneData){
     // each one products card
     eachOneData.forEach((data) => {
         productsContainer.innerHTML += `
-        <div class="bg-[#1e293b] rounded-lg border border-[#334155] p-5">
+        <div data-id=${data} class="product-card bg-[#1e293b] rounded-lg border border-[#334155] p-5">
             <div class="flex justify-between items-start mb-3">
                 <h2 class="text-base font-semibold text-white">${data.name}</h2>
                 <span class="text-[11px] uppercase tracking-wide bg-emerald-500/15 text-emerald-400 py-1 px-2 rounded">In Stock</span>
@@ -58,4 +58,12 @@ categoryBtnsContainer.addEventListener(('click'), (event) => {
     const buttonsData = selectedBtn.dataset.name;
     const filteringBtns = products.filter((cetegories) => cetegories.category === buttonsData || buttonsData === 'All');
     rendering(filteringBtns)
-})
+});
+
+
+// search products by name 
+searchBox.addEventListener(('input'), (event) => {
+    const searchText = searchBox.value.toLowerCase();
+    const filteringProducts = products.filter((product) =>  product.name.toLowerCase().includes(searchText));
+    rendering(filteringProducts);
+});
