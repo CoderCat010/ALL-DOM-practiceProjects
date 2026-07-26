@@ -12,12 +12,14 @@ const products = [
    {id: 5, name: "Bath Soap", category: "Grocery", price: 145, inStock: false}
 ];
 let uniqueBtns = []; 
+let valueCounter = 0;
 
 // rendering all items
 function rendering(eachOneData){
     // reset data
     productsContainer.innerHTML = '';
     categoryBtnsContainer.innerHTML = '';
+    valueCounter = 0;
 
     // cetegories buttons
     const categoryBtns = products.map((btn) => btn.category);
@@ -34,24 +36,39 @@ function rendering(eachOneData){
 
     // each one products card
     eachOneData.forEach((data) => {
+        // buy button 
+        let isInStock = 'In Stock';
+        let card = '';
+        let btn = '';
+        if(!data.inStock){
+            isInStock = 'Out Of Stock';
+            card = 'opacity-60';
+            btn = 'bg-rose-500/15 text-rose-400';
+        }
+
+        // card
         productsContainer.innerHTML += `
-        <div data-id=${data} class="product-card bg-[#1e293b] rounded-lg border border-[#334155] p-5">
+        <div data-id=${data.id} class="product-card bg-[#1e293b] rounded-lg border border-[#334155] p-5 ${card}">
             <div class="flex justify-between items-start mb-3">
                 <h2 class="text-base font-semibold text-white">${data.name}</h2>
-                <span class="text-[11px] uppercase tracking-wide bg-emerald-500/15 text-emerald-400 py-1 px-2 rounded">In Stock</span>
+                <span class="text-[11px] uppercase tracking-wide bg-emerald-500/15 text-emerald-400 py-1 px-2 rounded ${btn}">${isInStock}</span>
             </div>
             <p class="text-xs text-slate-400 mb-3">${data.category}</p>
             <div class="flex justify-between items-center">
                 <span class="text-teal-400 font-bold">$${data.price}</span>
-                <button class="text-xs font-medium text-slate-300 border border-[#334155] py-1 px-3 rounded-md hover:bg-[#334155]">Buy</button>
+                <button class="buy-btn text-xs font-medium text-slate-300 border border-[#334155] py-1 px-3 rounded-md hover:bg-[#334155]">Buy</button>
             </div>
         </div>`;
+
+        // total value counting
+        valueCounter += data.price;
     });
+    totalValue.textContent = `Total Value: $${valueCounter}`;
 };
 rendering(products);
 
 
-// filtering cetegory buttons 
+//-----> filtering cetegory buttons 
 categoryBtnsContainer.addEventListener(('click'), (event) => {
     const selectedBtn = event.target;
     if(!selectedBtn.classList.contains("cetegory-btn")) return;
@@ -61,9 +78,23 @@ categoryBtnsContainer.addEventListener(('click'), (event) => {
 });
 
 
-// search products by name 
+//-----> search products by name 
 searchBox.addEventListener(('input'), (event) => {
     const searchText = searchBox.value.toLowerCase();
     const filteringProducts = products.filter((product) =>  product.name.toLowerCase().includes(searchText));
     rendering(filteringProducts);
 });
+
+
+//-----> toggle stock button 
+productsContainer.addEventListener(('click'), (event) => {
+    const selectedElm = event.target;
+    if(!selectedElm.classList.contains('buy-btn')) return;
+
+    // each one product card & product id
+    const productCard = selectedElm.closest('.product-card');
+    const productId = Number(productCard.dataset.id);
+    const productObj = products.find((pro) => pro.id === productId);
+    productObj.inStock = !productObj.inStock;
+    rendering(products);
+})
