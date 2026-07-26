@@ -23,7 +23,7 @@ function rendering(eachOneData){
 
     // cetegories buttons
     const categoryBtns = products.map((btn) => btn.category);
-    const allBtns = categoryBtns.forEach((cetegory) => {
+    categoryBtns.forEach((cetegory) => {
         if(!uniqueBtns.includes(cetegory)){
             uniqueBtns.push(cetegory)
         }
