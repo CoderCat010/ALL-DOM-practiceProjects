@@ -40,10 +40,12 @@ function rendering(eachOneData){
         let isInStock = 'In Stock';
         let card = '';
         let btn = '';
+        let buyBtn = 'Buy';
         if(!data.inStock){
             isInStock = 'Out Of Stock';
             card = 'opacity-60';
             btn = 'bg-rose-500/15 text-rose-400';
+            buyBtn = 'Cancel'
         }
 
         // card
@@ -56,7 +58,7 @@ function rendering(eachOneData){
             <p class="text-xs text-slate-400 mb-3">${data.category}</p>
             <div class="flex justify-between items-center">
                 <span class="text-teal-400 font-bold">$${data.price}</span>
-                <button class="buy-btn text-xs font-medium text-slate-300 border border-[#334155] py-1 px-3 rounded-md hover:bg-[#334155]">Buy</button>
+                <button class="buy-btn text-xs font-medium text-slate-300 border border-[#334155] py-1 px-3 rounded-md hover:bg-[#334155]">${buyBtn}</button>
             </div>
         </div>`;
 
