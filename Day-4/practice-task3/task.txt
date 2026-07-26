@@ -1,0 +1,17 @@
+Task — Product Inventory Manager
+const products = [
+   {id: 1, name: "Rice Bag", category: "Grocery", price: 1200, inStock: true},
+   {id: 2, name: "Notebook", category: "Stationery", price: 50, inStock: true},
+   {id: 3, name: "Milk Pack", category: "Grocery", price: 80, inStock: false},
+   {id: 4, name: "Pen Set", category: "Stationery", price: 120, inStock: true},
+];
+
+❶ Render — সব Product দেখাবে (Name, Category, Price, In Stock/Out of Stock Status)
+
+❷ Category Filter — Data থেকে Dynamic ভাবে Category Button বানাবে 
+
+❸ Search — Input এ Product Name লিখলে Filter হবে
+
+❹ Toggle Stock — একটা Button — Click করলে "In Stock" থেকে "Out of Stock" হবে (Toggle)
+
+❺ Total Value — যা Screen এ দেখানো হচ্ছে, তাদের Price যোগফল দেখাবে 
