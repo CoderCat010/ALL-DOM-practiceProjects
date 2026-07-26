@@ -11,8 +11,28 @@ const products = [
    {id: 4, name: "Pen Set", category: "Stationery", price: 120, inStock: true},
    {id: 5, name: "Bath Soap", category: "Grocery", price: 145, inStock: false}
 ];
+let uniqueBtns = []; 
 
+// rendering all items
 function rendering(eachOneData){
+    // reset data
+    productsContainer.innerHTML = '';
+    categoryBtnsContainer.innerHTML = '';
+
+    // cetegories buttons
+    const categoryBtns = products.map((btn) => btn.category);
+    const allBtns = categoryBtns.forEach((cetegory) => {
+        if(!uniqueBtns.includes(cetegory)){
+            uniqueBtns.push(cetegory)
+        }
+    });
+    // each one category button
+    categoryBtnsContainer.innerHTML += `<button data-name="All" class="cetegory-btn bg-teal-500 text-white py-1.5 px-4 text-sm font-semibold rounded-md shadow-sm">All</button>`
+    uniqueBtns.forEach((b) => {
+        categoryBtnsContainer.innerHTML += `<button data-name=${b} class="cetegory-btn bg-[#1e293b] text-slate-300 py-1.5 px-4 text-sm font-semibold rounded-md border border-[#334155]">${b}</button>`;
+    });
+
+    // each one products card
     eachOneData.forEach((data) => {
         productsContainer.innerHTML += `
         <div class="bg-[#1e293b] rounded-lg border border-[#334155] p-5">
@@ -29,3 +49,13 @@ function rendering(eachOneData){
     });
 };
 rendering(products);
+
+
+// filtering cetegory buttons 
+categoryBtnsContainer.addEventListener(('click'), (event) => {
+    const selectedBtn = event.target;
+    if(!selectedBtn.classList.contains("cetegory-btn")) return;
+    const buttonsData = selectedBtn.dataset.name;
+    const filteringBtns = products.filter((cetegories) => cetegories.category === buttonsData || buttonsData === 'All');
+    rendering(filteringBtns)
+})
