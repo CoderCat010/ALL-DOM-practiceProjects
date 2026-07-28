@@ -31,7 +31,7 @@
                     <p class="text-[#7A8194] text-xs mb-1">Income</p>
                     <p class="text-emerald-400 font-semibold">$53,000</p>
                 </div>
-
+                
                 <div>
                     <p class="text-[#7A8194] text-xs mb-1">Expense</p>
                     <p class="text-rose-400 font-semibold">$5,700</p>
@@ -39,7 +39,55 @@
             </div>
         </div>
 
-       
+        <!--
+        transaction title 
+        -->
+        <h2 class="text-[#7A8194] text-sm font-medium mb-4 tracking-wide">RECENT TRANSACTIONS</h2>
+
+        <!-- 
+        transactions container 
+        -->
+        <div id="transactions-container" class="flex flex-col gap-3">
+            <!-- data will be added dynamically -->
+            <div class="transaction-card bg-[#1A1D24] border border-[#262933] rounded-2xl p-4 flex items-center justify-between">
+                <!-- title & description -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-lg">
+                        ↑
+                    </div>
+                    
+                    <div>
+                        <p class="text-white font-medium">Salary</p>
+                        <p class="text-[#7A8194] text-xs">Income</p>
+                    </div>
+                </div>
+                
+                <!-- transaction -->
+                <div class="flex items-center gap-4">
+                    <span class="text-emerald-400 font-semibold display-font">+$45,000</span>
+                    <button class="delete-btn text-[#7A8194] hover:text-rose-400 transition text-lg leading-none">✕</button>
+                </div>
+            </div>
+
+            <div class="transaction-card bg-[#1A1D24] border border-[#262933] rounded-2xl p-4 flex items-center justify-between">
+                <!-- title -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-400 text-lg">
+                        ↓
+                    </div>
+                    <div>
+                        <p class="text-white font-medium">Groceries</p>
+                        <p class="text-[#7A8194] text-xs">Expense</p>
+                    </div>
+                </div>
+
+                <!-- transation -->
+                <div class="flex items-center gap-4">
+                    <span class="text-rose-400 font-semibold display-font">-$3,500</span>
+                    <button class="delete-btn text-[#7A8194] hover:text-rose-400 transition text-lg leading-none">✕</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="./script.js"></script>
