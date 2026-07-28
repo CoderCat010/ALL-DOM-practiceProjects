@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+
+    <!-- css link -->
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#0F1115] min-h-screen">
+
+    <!-- parent div -->
+    <div class="max-w-[560px] mx-auto px-6 py-16">
+        <!-- 
+        balance card 
+        -->
+        <div class="bg-gradient-to-br from-[#1A1D24] to-[#14161B] border border-[#262933] rounded-3xl p-8 mb-8 text-center">
+            <!-- title & balance -->
+            <p class="text-[#7A8194] text-sm mb-2 tracking-wide">Current Balance</p>
+            <p id="balance-display" class="display-font text-5xl font-bold text-white">$47,300</p>
+
+            <!-- all balance history -->
+            <div class="flex justify-center gap-8 mt-6 pt-6 border-t border-[#262933]">
+                <div>
+                    <p class="text-[#7A8194] text-xs mb-1">Income</p>
+                    <p class="text-emerald-400 font-semibold">$53,000</p>
+                </div>
+
+                <div>
+                    <p class="text-[#7A8194] text-xs mb-1">Expense</p>
+                    <p class="text-rose-400 font-semibold">$5,700</p>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
