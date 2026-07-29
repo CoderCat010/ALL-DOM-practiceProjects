@@ -12,3 +12,5 @@ const transactions = [
 ❷ Income গুলো সবুজ রঙে, Expense গুলো লাল রঙে দেখাবে (+ আর - Sign সহ)
 ❸ Delete Button Click করলে সেই Transaction Array থেকে মুছে যাবে
 ❹ উপরে Total Balance দেখাবে (সব Income যোগ - সব Expense যোগ)
+
+
