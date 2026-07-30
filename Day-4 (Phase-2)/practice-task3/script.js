@@ -61,9 +61,17 @@ function createNoteCard(data){
         parentDiv.remove();
     });
 
-
+    
     // return card
     return parentDiv;
 }
 
 
+// render each one items
+function rendering(notesData){
+    notesData.forEach((eachOneCard) => {
+        const card = createNoteCard(eachOneCard);
+        notesContainer.appendChild(card);
+    });
+}
+rendering(notes);
