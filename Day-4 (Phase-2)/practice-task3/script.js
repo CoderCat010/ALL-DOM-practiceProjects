@@ -29,7 +29,41 @@ function createNoteCard(data){
     btn2.classList.add('delete-btn', 'text-[#B8AF9E]', 'hover:text-rose-400', 'transition', 'text-sm', 'leading-none');
     description.classList.add('serif', 'text-lg', 'text-[#2E2A24]');
 
+    // all text contents
+    title.textContent = data.subject;
+    btn1.textContent = '📌'
+    btn2.textContent = '✕'
+    description.textContent = data.topic;
 
+    // append childs
+    parentDiv.appendChild(contentsDiv)
+    contentsDiv.appendChild(title);
+    contentsDiv.appendChild(btsContainer)
+    btsContainer.appendChild(btn1);
+    btsContainer.appendChild(btn2);
+    parentDiv.appendChild(description);
+
+    // pin card
+    btn1.addEventListener('click', () => {
+        if(data.pinned === false){
+           data.pinned = true;
+           btn1.textContent = 'Unpin';
+           parentDiv.classList.add('bg-[#FCF3D9]');
+        }else{
+            data.pinned = false;
+            parentDiv.classList.remove('bg-[#FCF3D9]');
+            btn1.textContent = '📌';
+        }
+    });
+    // delete note
+    btn2.addEventListener('click', () => {
+        notes = notes.filter((delteNote) => delteNote.id !== data.id);
+        parentDiv.remove();
+    });
+
+
+    // return card
+    return parentDiv;
 }
 
 
