@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes</title>
+
+    <!-- css files -->
+     <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#EFEAE3] min-h-screen">
+
+    <div class="max-w-[700px] mx-auto px-6 py-14">
+        <!-- header -->
+        <div class="mb-10">
+            <h1 class="serif text-4xl text-[#2E2A24] mb-2">Study Notes</h1>
+            <p class="text-[#8C8375] text-sm">Pin what matters most right now</p>
+        </div>
+
+        <!-- notes container -->
+        <div id="notes-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- data will be added dynamically, dummy shown below for design -->
+
+            <div class="note-card bg-white rounded-xl border border-[#E0D9CB] shadow-sm p-5 relative">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-[10px] uppercase tracking-wider bg-[#EFEAE3] text-[#8C8375] px-2.5 py-1 rounded-full font-medium">Math</span>
+                    <div class="flex items-center gap-1.5">
+                        <button class="pin-btn text-[#B8AF9E] hover:text-[#C9A227] transition text-base leading-none">📌</button>
+                        <button class="delete-btn text-[#B8AF9E] hover:text-rose-400 transition text-sm leading-none">✕</button>
+                    </div>
+                </div>
+                <h2 class="serif text-lg text-[#2E2A24]">Algebra Basics</h2>
+            </div>
+
+            <div class="note-card bg-[#FCF3D9] rounded-xl border border-[#F0E1A0] shadow-sm p-5 relative">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-[10px] uppercase tracking-wider bg-[#F7E8AE] text-[#8A6D1E] px-2.5 py-1 rounded-full font-medium">Science</span>
+                    <div class="flex items-center gap-1.5">
+                        <button class="pin-btn text-[#C9A227] transition text-base leading-none">📌</button>
+                        <button class="delete-btn text-[#B8AF9E] hover:text-rose-400 transition text-sm leading-none">✕</button>
+                    </div>
+                </div>
+                <h2 class="serif text-lg text-[#2E2A24]">Photosynthesis</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- js file -->
+    <script src="./script.js"></script>
+</body>
+</html>
