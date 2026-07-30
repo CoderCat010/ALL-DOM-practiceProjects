@@ -99,7 +99,7 @@ function rendering(arrObjData){
         }
         // total balance
         totalBalance = income - expense;
-        mainBalance.textContent = `$${totalBalance}`;
     });
+    mainBalance.textContent = `$${totalBalance}`;
 }
 rendering(transactions);

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Log</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .display-font { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#F5F3EF] min-h-screen">
+
+    <div class="max-w-[600px] mx-auto px-6 py-14">
+
+        <!-- header -->
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="display-font text-3xl text-[#1C1C1C]">Today's Workout</h1>
+                <p class="text-[#8A8478] text-sm mt-1">Push through, one set at a time</p>
+            </div>
+            <div class="bg-[#1C1C1C] text-white rounded-2xl px-4 py-3 text-center">
+                <p id="completed-count" class="display-font text-xl font-bold">0/0</p>
+                <p class="text-[10px] uppercase tracking-wide text-[#B8B4AA]">Done</p>
+            </div>
+        </div>
+
+        <!-- workouts container -->
+        <div id="workouts-container" class="space-y-3">
+            <!-- data will be added dynamically, dummy shown below for design -->
+
+            <div class="workout-card bg-white border border-[#E8E4DB] rounded-2xl p-5 flex items-center justify-between">
+                <div>
+                    <h2 class="display-font text-lg text-[#1C1C1C]">Push Ups</h2>
+                    <p class="text-[#8A8478] text-sm mt-0.5">3 sets &times; 15 reps</p>
+                </div>
+                <button class="mark-done-btn bg-[#1C1C1C] text-white text-sm font-medium py-2 px-4 rounded-xl">Mark Done</button>
+            </div>
+
+            <div class="workout-card bg-[#E7F2EA] border border-[#CFE6D6] rounded-2xl p-5 flex items-center justify-between opacity-70">
+                <div>
+                    <h2 class="display-font text-lg text-[#1C1C1C] line-through">Squats</h2>
+                    <p class="text-[#5F7A68] text-sm mt-0.5">4 sets &times; 20 reps</p>
+                </div>
+                <button class="mark-done-btn bg-[#3F7A55] text-white text-sm font-medium py-2 px-4 rounded-xl">Done ✓</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

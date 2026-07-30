@@ -1,0 +1,12 @@
+Task — Fitness Workout Log
+let workouts = [
+   {id: 1, exercise: "Push Ups", sets: 3, reps: 15, completed: false},
+   {id: 2, exercise: "Squats", sets: 4, reps: 20, completed: false},
+   {id: 3, exercise: "Plank", sets: 3, reps: 1, completed: false},
+];
+
+কী করতে হবে:
+❶ সব Workout দেখাবে — Exercise Name, Sets x Reps, একটা "Mark Done" Button
+❷ Mark Done Click করলে completed Toggle হবে (Closure দিয়ে, data-id ছাড়া)
+❸ Completed Workout গুলোর Style আলাদা হবে (যেমন Strikethrough বা হালকা রঙ)
+❹ উপরে দেখাবে "Completed: 2/3"
