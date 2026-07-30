@@ -1,0 +1,12 @@
+Task - Study Notes Organizer 
+let notes = [
+   {id: 1, subject: "Math", topic: "Algebra Basics", pinned: false},
+   {id: 2, subject: "Science", topic: "Photosynthesis", pinned: false},
+   {id: 3, subject: "History", topic: "World War II", pinned: false},
+];
+
+কী করতে হবে:
+❶ সব Note দেখাবে — Subject, Topic, একটা "Pin" (📌) Button
+❷ Pin Button Click করলে pinned Toggle হবে (Closure দিয়ে)
+❸ Pinned Note গুলো Style এ আলাদা হবে (যেমন হালকা হলুদ Background)
+❹ Delete Button — Note সম্পূর্ণ মুছে ফেলা যাবে (তুমি এইমাত্র শিখেছ)

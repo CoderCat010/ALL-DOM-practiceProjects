@@ -10,3 +10,7 @@ let workouts = [
 ❷ Mark Done Click করলে completed Toggle হবে (Closure দিয়ে, data-id ছাড়া)
 ❸ Completed Workout গুলোর Style আলাদা হবে (যেমন Strikethrough বা হালকা রঙ)
 ❹ উপরে দেখাবে "Completed: 2/3"
+
+
+
+-------------Not Done-------------
