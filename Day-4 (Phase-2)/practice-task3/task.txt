@@ -10,16 +10,3 @@ let notes = [
 ❷ Pin Button Click করলে pinned Toggle হবে (Closure দিয়ে)
 ❸ Pinned Note গুলো Style এ আলাদা হবে (যেমন হালকা হলুদ Background)
 ❹ Delete Button — Note সম্পূর্ণ মুছে ফেলা যাবে (তুমি এইমাত্র শিখেছ)
-
-
-
-            <div class="note-card bg-[#FCF3D9] rounded-xl border border-[#F0E1A0] shadow-sm p-5 relative">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="text-[10px] uppercase tracking-wider bg-[#F7E8AE] text-[#8A6D1E] px-2.5 py-1 rounded-full font-medium">Science</span>
-                    <div class="flex items-center gap-1.5">
-                        <button class="pin-btn text-[#C9A227] transition text-base leading-none">📌</button>
-                        <button class="delete-btn text-[#B8AF9E] hover:text-rose-400 transition text-sm leading-none">✕</button>
-                    </div>
-                </div>
-                <h2 class="serif text-lg text-[#2E2A24]">Photosynthesis</h2>
-            </div>
