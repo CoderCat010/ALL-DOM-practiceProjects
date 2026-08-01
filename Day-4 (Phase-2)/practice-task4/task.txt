@@ -1,0 +1,13 @@
+Task - Simple CRM (Customer Notes)
+
+let customers = [
+   {id: 1, name: "Rahim Traders", contact: "01711111111", note: "Interested in bulk order"},
+   {id: 2, name: "Karim Enterprise", contact: "01822222222", note: "Follow up next week"},
+   {id: 3, name: "Nabila Fashion", contact: "01933333333", note: "Wants price list"},
+];
+
+কী করতে হবে:
+❶ সব Customer দেখাবে — Name, Contact, Note
+❷ "Edit Note" Button — Click করলে Note এর জায়গায় একটা Input Box আসবে (বর্তমান Note Value সহ), আর একটা "Save" Button
+❸ Save Click করলে — Input এর নতুন Value Array এ Update হবে, আবার Normal View তে ফিরে যাবে
+❹ Delete Button — Customer সম্পূর্ণ মুছে ফেলা যাবে
