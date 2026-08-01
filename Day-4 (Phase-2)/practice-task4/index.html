@@ -17,13 +17,59 @@
 
     <div class="max-w-[720px] mx-auto px-6 py-14">
 
-        <!-- header title -->
+        <!-- 
+        header title 
+        -->
         <div class="mb-10">
             <h1 class="heading-font text-3xl text-white mb-2">Customers</h1>
             <p class="text-[#6B7280] text-sm">Keep track of who needs what</p>
         </div>
 
-      
+        <!-- 
+        customers container 
+        -->
+        <div id="customers-container" class="space-y-3">
+            <!-- data will be added dynamically -->
+            <!-- normal view -->
+            <div class="customer-card bg-[#171A21] border border-[#262B36] rounded-2xl p-5">
+                <div class="flex items-start justify-between mb-3">
+                    <!-- title -->
+                    <div>
+                        <h2 class="heading-font text-white text-base">Rahim Traders</h2>
+                        <p class="text-[#6B7280] text-xs mt-0.5">01711111111</p>
+                    </div>
+                    
+                    <!-- edit -->
+                    <div class="flex items-center gap-2">
+                        <button class="edit-btn text-[#8B93A7] hover:text-[#4C8DFF] text-xs font-medium border border-[#262B36] rounded-lg px-3 py-1.5 transition">Edit Note</button>
+                        <button class="delete-btn text-[#8B93A7] hover:text-rose-400 text-sm leading-none transition">✕</button>
+                    </div>
+                </div>
+
+                <!-- note -->
+                <p class="text-[#B4B9C4] text-sm bg-[#0F1115] border border-[#262B36] rounded-xl px-4 py-2.5">Interested in bulk order</p>
+            </div>
+
+            <!-- edit mode view -->
+            <div class="customer-card bg-[#171A21] border border-[#4C8DFF]/40 rounded-2xl p-5">
+                <div class="flex items-start justify-between mb-3">
+                    <!-- title -->
+                    <div>
+                        <h2 class="heading-font text-white text-base">Karim Enterprise</h2>
+                        <p class="text-[#6B7280] text-xs mt-0.5">01822222222</p>
+                    </div>
+
+                    <!-- edit -->
+                    <div class="flex items-center gap-2">
+                        <button class="save-btn text-[#4C8DFF] text-xs font-semibold border border-[#4C8DFF]/40 rounded-lg px-3 py-1.5 transition">Save</button>
+                        <button class="delete-btn text-[#8B93A7] hover:text-rose-400 text-sm leading-none transition">✕</button>
+                    </div>
+                </div>
+
+                <!-- note -->
+                <input type="text" value="Follow up next week" class="note-input w-full text-[#E5E7EB] text-sm bg-[#0F1115] border border-[#4C8DFF]/50 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-[#4C8DFF]">
+            </div>
+        </div>
     </div>
 
     <!-- js file -->
