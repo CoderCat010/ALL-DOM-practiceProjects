@@ -70,16 +70,19 @@ function elementsFactory(elements){
         const editBtn = document.createElement('button');
         const viewModenote = document.createElement('p');
 
+        // styles
         editBtn.classList.add('edit-btn', 'text-[#8B93A7]', 'hover:text-[#4C8DFF]', 'text-xs', 'font-medium', 'border', 'border-[#262B36]', 'rounded-lg', 'px-3', 'py-1.5', 'transition');
         viewModenote.classList.add('text-[#B4B9C4]', 'text-sm', 'bg-[#0F1115]', 'border', 'border-[#262B36]', 'rounded-xl', 'px-4', 'py-2.5');
 
+        // text content
         editBtn.textContent = 'Edit';
         viewModenote.textContent = elements.note;
 
+        // append
         div2.appendChild(editBtn);
         primaryDiv.appendChild(viewModenote);
 
-        // EDIT click -> edit mode on
+       // event listener on edit btn
         editBtn.addEventListener('click', () => {
             elements.isEditing = true;
             rendering(customers);
