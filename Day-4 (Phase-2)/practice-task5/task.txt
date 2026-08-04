@@ -1,0 +1,21 @@
+Task — Event Booking Manager
+
+let bookings = [
+   {id: 1, eventName: "Wedding Photography", client: "Anika Rahman", date: "2026-08-15", status: "pending"},
+   {id: 2, eventName: "Birthday Shoot", client: "Tanvir Ahmed", date: "2026-08-20", status: "confirmed"},
+   {id: 3, eventName: "Product Launch", client: "Nusrat Jahan", date: "2026-09-01", status: "pending"},
+];
+
+কী করতে হবে:
+❶ সব Booking দেখাবে — Event Name, Client, Date, Status (Badge হিসেবে)
+
+❷ [NOTUN CONCEPT] Status অনুযায়ী Badge এর Color আলাদা হবে:
+pending → হলুদ
+confirmed → সবুজ
+cancelled → লাল
+
+❸ Status বদলানোর জন্য Dropdown (<select>) — 3টা option (pending/confirmed/cancelled). Change হলে সেই booking এর status update হবে 
+
+❹ Filter — Status অনুযায়ী Dynamic Button banabe 
+
+❺ Delete Button
