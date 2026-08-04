@@ -28,7 +28,46 @@
             <button class="bg-white text-[#5C6259] py-1.5 px-4 text-sm font-medium rounded-full border border-[#E4E7E1]">Confirmed</button>
         </div>
 
-      
+        <!-- bookings container -->
+        <div id="bookings-container" class="space-y-3">
+            <!-- data will be added dynamically -->
+            <div class="booking-card bg-white border border-[#E4E7E1] rounded-2xl p-5 flex items-center justify-between">
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <h2 class="heading-font text-[#20241F] text-base">Wedding Photography</h2>
+                        <span class="bg-[#FEF3C7] text-[#92620A] text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 rounded-full">Pending</span>
+                    </div>
+                    <p class="text-[#8B9186] text-sm">Anika Rahman &middot; Aug 15, 2026</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <select class="status-select text-sm border border-[#E4E7E1] rounded-lg px-2.5 py-1.5 bg-[#FAFAF8] text-[#20241F] focus:outline-none">
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                    <button class="delete-btn text-[#8B9186] hover:text-rose-400 text-sm leading-none transition">✕</button>
+                </div>
+            </div>
+
+            <div class="booking-card bg-white border border-[#E4E7E1] rounded-2xl p-5 flex items-center justify-between">
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <h2 class="heading-font text-[#20241F] text-base">Birthday Shoot</h2>
+                        <span class="bg-[#DCF5E3] text-[#1D7A3E] text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 rounded-full">Confirmed</span>
+                    </div>
+                    <p class="text-[#8B9186] text-sm">Tanvir Ahmed &middot; Aug 20, 2026</p>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <select class="status-select text-sm border border-[#E4E7E1] rounded-lg px-2.5 py-1.5 bg-[#FAFAF8] text-[#20241F] focus:outline-none">
+                        <option value="pending">Pending</option>
+                        <option value="confirmed" selected>Confirmed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                    <button class="delete-btn text-[#8B9186] hover:text-rose-400 text-sm leading-none transition">✕</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
