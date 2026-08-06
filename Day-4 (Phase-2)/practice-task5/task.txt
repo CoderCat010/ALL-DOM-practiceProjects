@@ -7,9 +7,9 @@ let bookings = [
 ];
 
 কী করতে হবে:
-❶ সব Booking দেখাবে — Event Name, Client, Date, Status (Badge হিসেবে)
+❶ সব Booking দেখাবে — Event Name, Client, Date, Status (Status - Badge হিসেবে)
 
-❷ [NOTUN CONCEPT] Status অনুযায়ী Badge এর Color আলাদা হবে:
+❷ Status অনুযায়ী Badge এর Color আলাদা হবে:
 pending → হলুদ
 confirmed → সবুজ
 cancelled → লাল
