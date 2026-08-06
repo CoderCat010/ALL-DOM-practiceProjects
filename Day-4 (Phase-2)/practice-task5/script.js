@@ -7,7 +7,7 @@ const bookingsContainer = document.getElementById('bookings-container');
 let bookings = [
    {id: 1, eventName: "Wedding Photography", client: "Anika Rahman", date: "2026-08-15", status: "pending"},
    {id: 2, eventName: "Birthday Shoot", client: "Tanvir Ahmed", date: "2026-08-20", status: "confirmed"},
-   {id: 3, eventName: "Product Launch", client: "Nusrat Jahan", date: "2026-09-01", status: "pending"},
+   {id: 3, eventName: "Product Launch", client: "Nusrat Jahan", date: "2026-09-01", status: "cancelled"},
 ];
 
 function elementsFactory(elements){
@@ -46,9 +46,20 @@ function elementsFactory(elements){
     `;
     statusSelect.value = elements.status;
 
-    // -----> TODO (তোমার কাজ): status অনুযায়ী statusBadge এর color class বসানো (if/else দিয়ে)
+    // Change status badge's color based on status
+    if(elements.status === 'pending'){
+        statusBadge.classList.add('bg-[#FEF3C7]', 'text-[#92620A]');
+    }else if(elements.status === 'confirmed'){
+         statusBadge.classList.add('bg-[#DCF5E3]', 'text-[#1D7A3E]');
+    }else{
+        statusBadge.classList.add('bg-[#ffe0d9]', 'text-[#803e29]');
+    }
 
-    // -----> TODO (তোমার কাজ): statusSelect এ 'change' event বসানো, elements.status update করা, rendering(bookings) call করা
+    // add event on status select option
+    statusSelect.addEventListener(('change'), () => {
+        elements.status = statusSelect.value;
+        rendering(bookings);
+    })
 
     // -----> TODO (তোমার কাজ): deleteBtn এ 'click' event বসানো, bookings থেকে filter করে বাদ দেওয়া, rendering(bookings) call করা
 
