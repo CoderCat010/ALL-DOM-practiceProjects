@@ -61,7 +61,12 @@ function elementsFactory(elements){
         rendering(bookings);
     })
 
-    // -----> TODO (তোমার কাজ): deleteBtn এ 'click' event বসানো, bookings থেকে filter করে বাদ দেওয়া, rendering(bookings) call করা
+    // add event listener on delete button to delete items from main array 
+    deleteBtn.addEventListener(('click'), () => {
+        bookings = bookings.filter((book) => book.id !== elements.id);
+        rendering(bookings);
+    });
+    
 
     // append all childs
     card.appendChild(infoDiv);
