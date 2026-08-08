@@ -27,7 +27,12 @@ function createBtns(btnElements){
     primaryBtn.classList.add('bg-[#20241F]',  'text-white', 'py-1.5', 'px-4', 'text-sm',  'font-medium', 'rounded-full');
     // add text
     primaryBtn.textContent = 'All';
-    
+    // "All" button click
+    primaryBtn.addEventListener('click', () => {
+        renderingCards(bookings);
+    });
+
+
     // loop through each one btn 
    const statusAllBtn =  uniqueBtn.map((btn) => {
         // create button
