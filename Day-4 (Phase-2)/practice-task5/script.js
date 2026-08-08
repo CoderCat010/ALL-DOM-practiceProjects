@@ -1,16 +1,57 @@
 // all elements
 const statusFilterBtns = document.getElementById('status-filter-container');
 const bookingsContainer = document.getElementById('bookings-container');
+let uniqueBtn = [];
 
 
 // data 
 let bookings = [
    {id: 1, eventName: "Wedding Photography", client: "Anika Rahman", date: "2026-08-15", status: "pending"},
    {id: 2, eventName: "Birthday Shoot", client: "Tanvir Ahmed", date: "2026-08-20", status: "confirmed"},
-   {id: 3, eventName: "Product Launch", client: "Nusrat Jahan", date: "2026-09-01", status: "cancelled"},
+   {id: 3, eventName: "Product Launch", client: "Nusrat Jahan", date: "2026-09-01", status: "pending"},
 ];
 
-function elementsFactory(elements){
+// -----> create filter container buttons
+function createBtns(btnElements){
+    // store all booking statues 
+    const bookingStatus = bookings.map((s) => s.status);
+    bookingStatus.forEach((currentbtns) => {
+        if(!uniqueBtn.includes(currentbtns)){
+            uniqueBtn.push(currentbtns);
+        }
+    });
+
+    // create primary button
+    const primaryBtn = document.createElement('button');
+    // add styles
+    primaryBtn.classList.add('bg-[#20241F]',  'text-white', 'py-1.5', 'px-4', 'text-sm',  'font-medium', 'rounded-full');
+    // add text
+    primaryBtn.textContent = 'All';
+    
+    // loop through each one btn 
+   const statusAllBtn =  uniqueBtn.map((btn) => {
+        // create button
+        const allBtn = document.createElement('button');
+        // add style
+        allBtn.classList.add('bg-white', 'text-[#5C6259]', 'py-1.5', 'px-4', 'text-sm',  'font-medium', 'rounded-full', 'border', 'border-[#E4E7E1]');
+        // add text
+        allBtn.textContent = btn;
+
+        // add event listener on button
+        allBtn.addEventListener('click', () => {
+            const selectedStatus = allBtn.textContent; 
+            const filtered = bookings.filter((b) => b.status === selectedStatus);
+            renderingCards(filtered);
+        });
+
+        return allBtn;
+    });
+    return [primaryBtn, ...statusAllBtn];
+}
+
+
+//-----> create booking card
+function elementsCardsFactory(elements){
     // create parent card div
     const card = document.createElement('div');
     const infoDiv = document.createElement('div');
@@ -58,13 +99,13 @@ function elementsFactory(elements){
     // add event on status select option
     statusSelect.addEventListener(('change'), () => {
         elements.status = statusSelect.value;
-        rendering(bookings);
+        renderingCards(bookings);
     })
 
     // add event listener on delete button to delete items from main array 
     deleteBtn.addEventListener(('click'), () => {
         bookings = bookings.filter((book) => book.id !== elements.id);
-        rendering(bookings);
+        renderingCards(bookings);
     });
     
 
@@ -81,11 +122,25 @@ function elementsFactory(elements){
     return card;
 }
 
-function rendering(bookingsData){
+
+//===== render filter container buttons =====
+function renderingButtons(){
+    statusFilterBtns.innerHTML = '';
+
+    const filteredBtn = createBtns();
+    filteredBtn.forEach((b) => {
+        statusFilterBtns.appendChild(b);
+    });
+}
+renderingButtons();
+
+
+//===== render each one booking cards =====
+function renderingCards(bookingsData){
     bookingsContainer.innerHTML = '';
     bookingsData.forEach((data) => {
-        const card = elementsFactory(data);
+        const card = elementsCardsFactory(data);
         bookingsContainer.appendChild(card);
     });
 }
-rendering(bookings);
+renderingCards(bookings);
