@@ -43,10 +43,35 @@ function ingredCardFactory(elements){
     title.textContent = elements.name;
     quantityText.textContent = `${elements.quantity} ${elements.unit}`;
     deleteBtn.textContent = '✕';
-    warningText.textContent = '⚠ Low Stock!';
     minusBtn.textContent = '−';
     countSpan.textContent = elements.quantity;
     plusBtn.textContent = '+';
+
+    // add event listener on plus counter btn (increment)
+    plusBtn.addEventListener(('click'), () => {
+        elements.quantity++;
+        renderingCards(ingredients);
+    });
+
+    // add event listener on minus counter btn (decrement)
+    minusBtn.addEventListener(('click'), () => {
+     if(elements.quantity > 0){ 
+            elements.quantity--;
+        }
+        renderingCards(ingredients)
+    });
+
+    // low stock warning
+    if(elements.quantity < elements.minRequired){
+        warningText.textContent = '⚠ Low Stock!';
+        card.classList.add('bg-[#FDEEEC]');
+    }
+
+
+
+
+
+
 
     // append all childs
     card.appendChild(topRow);

@@ -7,9 +7,13 @@ let ingredients = [
 
 কী করতে হবে:
 ❶ Render: সব Ingredient দেখাবে — Name, Quantity + Unit, "+" এবং "−" Button
+
 ❷ Quantity Control: "+" Click করলে Quantity ১ বাড়বে, "−" Click করলে Quantity ১ কমবে, কিন্তু 0 এর নিচে যাবে না
+
 ❸ Low Stock Warning: যদি quantity < minRequired হয়, Card এ লাল "Low Stock!" Warning দেখাবে
+
 ❹ Filter Button: দুইটা Fixed Button — "All" এবং "Low Stock Only", "Low Stock Only" Click করলে শুধু সেই Ingredient গুলো দেখাবে যাদের quantity < minRequired
+
 ❺ Delete Button
 
 
