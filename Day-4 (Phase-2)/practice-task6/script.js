@@ -1,6 +1,7 @@
 // all elements
 const filterContainer = document.getElementById('filter-container');
 const ingredientsContainer = document.getElementById('ingredients-container');
+let lowStockCount = document.getElementById('low-stock-count');
 let uniqueBtns = [];
 
 // data 
@@ -47,6 +48,7 @@ function ingredCardFactory(elements){
     countSpan.textContent = elements.quantity;
     plusBtn.textContent = '+';
 
+    
     // add event listener on plus counter btn (increment)
     plusBtn.addEventListener(('click'), () => {
         elements.quantity++;
@@ -65,12 +67,16 @@ function ingredCardFactory(elements){
     if(elements.quantity < elements.minRequired){
         warningText.textContent = '⚠ Low Stock!';
         card.classList.add('bg-[#FDEEEC]');
+
+        // store low stock quantity
+        lowStockCount.textContent = ingredients.filter((items) => items.quantity < items.minRequired).length;
     }
 
-
-
-
-
+    // delete card 
+    deleteBtn.addEventListener(('click'), () => {
+        ingredients = ingredients.filter((ingred) => ingred.id !== elements.id);
+        renderingCards(ingredients)
+    })
 
 
     // append all childs
