@@ -32,18 +32,19 @@
             </div>
         </div>
 
-        <!-- filter buttons -->
+        <!-- filter buttons container -->
         <div id="filter-container" class="flex items-center gap-2 mb-8">
             <!-- data will be added dynamically -->
             <button class="bg-[#3B2C22] text-white text-sm font-medium py-2 px-5 rounded-full shadow-sm">All</button>
             <button class="bg-white text-[#6B5B4C] text-sm font-medium py-2 px-5 rounded-full border border-[#F0E2CE]">Low Stock Only</button>
         </div>
 
-        <!-- ingredients container -->
+        <!-- all ingredients container -->
         <div id="ingredients-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <!-- data will be added dynamically, dummy shown below for design -->
-
+            <!-- data will be added dynamically -->
+            <!-- ingredients card -->
             <div class="ingredient-card bg-white rounded-2xl border border-[#F0E2CE] shadow-sm p-5">
+                <!-- title & description, delete button -->
                 <div class="flex justify-between items-start mb-4">
                     <div>
                         <h2 class="serif text-xl text-[#3B2C22]">Flour</h2>
@@ -51,6 +52,8 @@
                     </div>
                     <button class="delete-btn text-[#C9BBA8] hover:text-rose-400 text-sm leading-none transition">✕</button>
                 </div>
+
+                <!-- counting buttons contents -->
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3 bg-[#FDF6EA] rounded-xl px-3 py-2">
                         <button class="minus-btn w-7 h-7 flex items-center justify-center rounded-lg bg-white text-[#3B2C22] shadow-sm font-semibold">−</button>
@@ -77,9 +80,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
 
     <!-- js file -->
