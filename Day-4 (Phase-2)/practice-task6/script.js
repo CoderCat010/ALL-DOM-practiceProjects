@@ -11,7 +11,7 @@ let ingredients = [
 ];
 
 // create ingredients card
-function ingredCardFactory(cardsData){
+function ingredCardFactory(elements){
     // create parent card and inner elements
     const card = document.createElement('div');
     const topRow = document.createElement('div');
@@ -63,3 +63,17 @@ function ingredCardFactory(cardsData){
 
     return card;
 }
+
+
+//========== render each one cards ===========
+function renderingCards(card){
+    // clear previous values
+    ingredientsContainer.innerHTML = '';
+
+    // rendering
+    card.forEach((data) => {
+        const allCards = ingredCardFactory(data);
+        ingredientsContainer.appendChild(allCards);
+    });
+}
+renderingCards(ingredients);
