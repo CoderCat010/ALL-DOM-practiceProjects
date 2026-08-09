@@ -13,7 +13,7 @@ let bookings = [
 
 // -----> create filter container buttons
 function createBtns(btnElements){
-    // store all booking statues 
+    // get unique status from array data
     const bookingStatus = bookings.map((s) => s.status);
     bookingStatus.forEach((currentbtns) => {
         if(!uniqueBtn.includes(currentbtns)){
@@ -47,7 +47,6 @@ function createBtns(btnElements){
             const filtered = bookings.filter((b) => b.status === selectedStatus);
             renderingCards(filtered);
         });
-
         return allBtn;
     });
     return [primaryBtn, ...statusAllBtn];
