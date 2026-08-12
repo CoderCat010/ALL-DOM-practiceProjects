@@ -1,7 +1,10 @@
 body { 
-    font-family: 'Inter', sans-serif; 
+    font-family: 'Space Grotesk', sans-serif; 
 }
-        
-.serif { 
-    font-family: 'DM Serif Display', serif; 
+h1, .serif { 
+    font-family: 'Fraunces', serif; 
+}
+
+.mono { 
+    font-family: 'JetBrains Mono', monospace; 
 }
