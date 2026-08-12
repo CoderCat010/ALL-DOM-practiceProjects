@@ -31,9 +31,26 @@
             </div>
         </div>
 
-        <!-- search -->
+        <!-- search container -->
         <div class="mb-6">
             <input id="project-search" type="text" placeholder="Search by title or client" class="w-full mono text-sm bg-white border border-[#E4DFD3] rounded-xl px-4 py-3 outline-none focus:border-[#B8862E] focus:ring-2 focus:ring-[#B8862E]/20">
+        </div>
+
+        <!-- status filter + sort container -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+            <div id="status-filter-container" class="flex flex-wrap gap-2">
+                <!-- data will be added dynamically -->
+                <button class="mono text-xs uppercase tracking-wide px-4 py-2 rounded-full bg-[#1B2430] text-[#F6F3EC]">All</button>
+                <button class="mono text-xs uppercase tracking-wide px-4 py-2 rounded-full bg-white text-[#1B2430] border border-[#E4DFD3]">Ongoing</button>
+                <button class="mono text-xs uppercase tracking-wide px-4 py-2 rounded-full bg-white text-[#1B2430] border border-[#E4DFD3]">Completed</button>
+                <button class="mono text-xs uppercase tracking-wide px-4 py-2 rounded-full bg-white text-[#1B2430] border border-[#E4DFD3]">Pending</button>
+            </div>
+
+            <select id="sort-select" class="mono text-xs uppercase tracking-wide bg-white border border-[#E4DFD3] rounded-full px-4 py-2 outline-none focus:border-[#B8862E]">
+                <option>Sort: Default</option>
+                <option>Budget: High to Low</option>
+                <option>Budget: Low to High</option>
+            </select>
         </div>
 
 
