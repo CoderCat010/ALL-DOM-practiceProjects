@@ -1,59 +1,16 @@
-Task — Kitchen Ingredient Stock Manager 
-let ingredients = [
-   {id: 1, name: "Flour", quantity: 5, unit: "kg", minRequired: 2},
-   {id: 2, name: "Sugar", quantity: 1, unit: "kg", minRequired: 2},
-   {id: 3, name: "Eggs", quantity: 12, unit: "pcs", minRequired: 6},
+Task — Freelance Project Tracker 
+let projects = [
+   {id: 1, title: "Logo Design", client: "Nabila", budget: 8000, status: "ongoing", deadline: "2026-09-01"},
+   {id: 2, title: "Website Redesign", client: "Rafi Traders", budget: 25000, status: "completed", deadline: "2026-08-10"},
+   {id: 3, title: "App Icon Set", client: "Meem Studio", budget: 4500, status: "ongoing", deadline: "2026-09-15"},
+   {id: 4, title: "Brand Guideline", client: "Nabila", budget: 12000, status: "pending", deadline: "2026-10-01"},
 ];
 
 কী করতে হবে:
-❶ Render: সব Ingredient দেখাবে — Name, Quantity + Unit, "+" এবং "−" Button
-
-❷ Quantity Control: "+" Click করলে Quantity ১ বাড়বে, "−" Click করলে Quantity ১ কমবে, কিন্তু 0 এর নিচে যাবে না
-
-❸ Low Stock Warning: যদি quantity < minRequired হয়, Card এ লাল "Low Stock!" Warning দেখাবে
-
-❹ Filter Button: দুইটা Fixed Button — "All" এবং "Low Stock Only", "Low Stock Only" Click করলে শুধু সেই Ingredient গুলো দেখাবে যাদের quantity < minRequired
-
-❺ Delete Button
-
-
-
-
-
-            <div class="ingredient-card bg-white rounded-2xl border border-[#F0E2CE] shadow-sm p-5">
-                <!-- title & description, delete button -->
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h2 class="serif text-xl text-[#3B2C22]">Flour</h2>
-                        <p class="text-[#9C8B78] text-sm mt-0.5">5 kg</p>
-                    </div>
-                    <button class="delete-btn text-[#C9BBA8] hover:text-rose-400 text-sm leading-none transition">✕</button>
-                </div>
-
-                <!-- counting buttons contents -->
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3 bg-[#FDF6EA] rounded-xl px-3 py-2">
-                        <button class="minus-btn w-7 h-7 flex items-center justify-center rounded-lg bg-white text-[#3B2C22] shadow-sm font-semibold">−</button>
-                        <span class="text-[#3B2C22] font-semibold w-6 text-center">5</span>
-                        <button class="plus-btn w-7 h-7 flex items-center justify-center rounded-lg bg-white text-[#3B2C22] shadow-sm font-semibold">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ingredient-card bg-[#FDEEEC] rounded-2xl border border-[#F5C6C0] shadow-sm p-5">
-                <div class="flex justify-between items-start mb-3">
-                    <div>
-                        <h2 class="serif text-xl text-[#3B2C22]">Sugar</h2>
-                        <p class="text-[#9C8B78] text-sm mt-0.5">1 kg</p>
-                    </div>
-                    <button class="delete-btn text-[#C9BBA8] hover:text-rose-400 text-sm leading-none transition">✕</button>
-                </div>
-                <p class="text-[#C0392B] text-xs font-semibold mb-3">⚠ Low Stock!</p>
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3 bg-white rounded-xl px-3 py-2">
-                        <button class="minus-btn w-7 h-7 flex items-center justify-center rounded-lg bg-[#FDF6EA] text-[#3B2C22] shadow-sm font-semibold">−</button>
-                        <span class="text-[#3B2C22] font-semibold w-6 text-center">1</span>
-                        <button class="plus-btn w-7 h-7 flex items-center justify-center rounded-lg bg-[#FDF6EA] text-[#3B2C22] shadow-sm font-semibold">+</button>
-                    </div>
-                </div>
-            </div>
+❶ সব Project দেখাবে — Title, Client, Budget, Status Badge, Deadline
+❷ Status Filter (Dynamic Button)
+❸ Search Box — Filter এর সাথে একসাথে কাজ করবে
+❹ [নতুন] Sort Button — "Budget: High to Low" এবং "Budget: Low to High"
+❺ [নতুন] Deadline যদি আজকের তারিখের চেয়ে ৭ দিনের কম দূরে হয়, Card এ "Deadline Soon ⚠" Badge দেখাবে
+❻ Total Budget (বর্তমানে দেখানো Project এর যোগফল)
+❼ Delete Button
