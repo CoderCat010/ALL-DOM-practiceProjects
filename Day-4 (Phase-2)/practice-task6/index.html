@@ -18,15 +18,24 @@
     <div class="max-w-[1100px] mx-auto px-6 py-14">
         <!-- header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 border-b-2 border-[#1B2430] pb-6">
+            <!-- title -->
             <div>
                 <p class="mono text-xs tracking-[0.25em] uppercase text-[#B8862E] mb-2">Freelance Ledger — 2026</p>
                 <h1 class="text-4xl md:text-5xl font-semibold text-[#1B2430]">Project Tracker</h1>
             </div>
+
+            <!-- display balance -->
             <div class="text-right">
-                <p class="mono text-xs uppercase tracking-widest text-[#3C4A5C] mb-1">Total Budget (Showing)</p>
-                <p id="total-budget" class="serif text-3xl font-bold text-[#3E6B5C]">৳49,500</p>
+                <p class="mono text-xs uppercase tracking-widest text-[#3C4A5C] mb-1">Total Budget</p>
+                <p id="total-budget" class="serif text-3xl font-bold text-[#3E6B5C]">$49,500</p>
             </div>
         </div>
+
+        <!-- search -->
+        <div class="mb-6">
+            <input id="project-search" type="text" placeholder="Search by title or client" class="w-full mono text-sm bg-white border border-[#E4DFD3] rounded-xl px-4 py-3 outline-none focus:border-[#B8862E] focus:ring-2 focus:ring-[#B8862E]/20">
+        </div>
+
 
     </div>
 
