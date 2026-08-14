@@ -2,6 +2,7 @@
 const totalBudget = document.getElementById('total-budget');
 const searchInputBox = document.getElementById('project-search');
 const statusBtnContainer = document.getElementById('status-filter-container');
+const sortSelectContainer = document.getElementById('sort-select');
 const projectsContainer = document.getElementById('projects-container');
 
 // data
@@ -11,8 +12,10 @@ let projects = [
    {id: 3, title: "App Icon Set", client: "Meem Studio", budget: 4500, status: "ongoing", deadline: "2026-09-15"},
    {id: 4, title: "Brand Guideline", client: "Nabila", budget: 12000, status: "pending", deadline: "2026-10-01"},
 ];
-
+const originalProjects = [...projects];
 let activeFilter = 'All';
+
+
 //------ CREATE EACH ONE DYNAMIC FILTER BUTTONS
 function createFilterBtn(value){
    // CREATE BUTTON
@@ -26,7 +29,7 @@ function createFilterBtn(value){
    }
     
    // ADD TEXT 
-    btn.textContent = value;
+   btn.textContent = value;
     
    //  ADD EVENT LISTENR ON BUTTON
     btn.addEventListener('click', () => {
@@ -41,7 +44,7 @@ function createFilterBtn(value){
     });
     return btn;
 }
-//====== STORE UNIQUE BUTTONS & RENDER ALL STATUS BUTTONS ======
+//====== STORE UNIQUE BUTTONS & DISPLAY ALL STATUS BUTTONS ON THE PAGE ======
 function renderingButtons(){
     statusBtnContainer.innerHTML = '';
     
@@ -57,6 +60,30 @@ function renderingButtons(){
     });
 }
 renderingButtons();
+
+
+//----- SORT PROJECTS CARD BASED ON THEIR BUDGE HIGH TO LOW/LOW TO HIGH
+function createSortingOptions(){
+   sortSelectContainer.innerHTML = `
+      <option>Sort: Default</option>
+      <option>Budget: High to Low</option>
+      <option>Budget: Low to High</option>`;
+
+   sortSelectContainer.addEventListener('change', () => {
+      const sortValue = sortSelectContainer.value;
+
+      if(sortValue === 'Budget: High to Low'){
+         projects = originalProjects.toSorted((a, b) => b.budget - a.budget);
+      } else if(sortValue === 'Budget: Low to High'){
+         projects = originalProjects.toSorted((a, b) => a.budget - b.budget);
+      } else {
+         projects = [...originalProjects];
+      }
+
+      renderingProjectsCard(projects);
+   });
+}
+createSortingOptions();
 
 
 //------ CREATE EACH ONE PROJECTS CARD
@@ -113,8 +140,6 @@ function createProjectsCard(elements){
 
     return card;
 }
-
-
 //====== DISPLAY ALL PROJECTS CARD ON THE PAGE ====== 
 function renderingProjectsCard(arrObjDATA){
    projectsContainer.innerHTML = '';
