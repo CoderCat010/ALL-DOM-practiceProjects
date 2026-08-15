@@ -18,18 +18,17 @@ let activeFilter = 'All';
 
 
 //----- SEARCH BY NAME/TITLE
-searchInputBox.addEventListener('input', () => {
+function getFilteredProjects(){
     const searchText = searchInputBox.value.toLowerCase();
     
-    const filteredProjects = projects.filter((item) => {
-      // search by tile or client name
+    return projects.filter((item) => {
         const matchesSearch = item.title.toLowerCase().includes(searchText) || item.client.toLowerCase().includes(searchText);
-      // select status button & search based on what displayed on the page   
         const matchesFilter = activeFilter === 'All' || item.status === activeFilter;
-        
         return matchesSearch && matchesFilter;
     });
-    renderingProjectsCard(filteredProjects);
+}
+searchInputBox.addEventListener('input', () => {
+    renderingProjectsCard(getFilteredProjects());
 });
 
 
@@ -51,13 +50,7 @@ function createFilterBtn(value){
    //  ADD EVENT LISTENR ON BUTTON
     btn.addEventListener('click', () => {
         activeFilter = value;
-        let filtered;
-        if(value === 'All'){
-            filtered = projects;
-        } else {
-            filtered = projects.filter((p) => p.status === value);
-        }
-        renderingProjectsCard(filtered);
+        renderingProjectsCard(getFilteredProjects());
     });
     return btn;
 }
