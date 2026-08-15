@@ -13,6 +13,7 @@ let projects = [
    {id: 4, title: "Test Project", client: "Test Client", budget: 5000, status: "pending", deadline: "2026-08-18"}
 ];
 const originalProjects = [...projects];
+let currentBudget = 0;
 let activeFilter = 'All';
 
 
@@ -159,10 +160,15 @@ function createProjectsCard(elements){
 //====== DISPLAY ALL PROJECTS CARD ON THE PAGE ====== 
 function renderingProjectsCard(arrObjDATA){
    projectsContainer.innerHTML = '';
+   totalBudget.textContent = '';
+   currentBudget = 0;
+
    renderingButtons();
    arrObjDATA.forEach((data) => {
       const card = createProjectsCard(data);
       projectsContainer.appendChild(card);
-   })
+      currentBudget += data.budget;
+   });
+   totalBudget.textContent = `৳${currentBudget}`;
 }
 renderingProjectsCard(projects)
