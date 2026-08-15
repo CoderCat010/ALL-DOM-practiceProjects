@@ -25,6 +25,32 @@ function createTaskCard(elements){
     const deleteBtn = document.createElement('button');
     const moveBtn = document.createElement('button');
     
-
+    // add styles (color depends on column — done via TODO below)
+    note.classList.add('note', 'relative', 'rounded-sm', 'p-5', 'pt-6');
+    pin.classList.add('pin', 'absolute', '-top-2', 'left-1/2', '-translate-x-1/2');
+    titleText.classList.add('handwrite', 'text-xl', 'mb-1');
+    assigneeText.classList.add('text-xs', 'font-bold', 'mb-3');
+    bottomRow.classList.add('flex', 'items-center', 'justify-between');
+    priorityBadge.classList.add('text-[10px]', 'uppercase', 'font-extrabold', 'tracking-wide', 'px-2.5', 'py-1', 'rounded', 'text-white');
+    deleteBtn.classList.add('delete-btn', 'font-bold', 'text-sm');
+    moveBtn.classList.add('move-btn', 'w-full', 'mt-3', 'handwrite', 'text-base', 'px-3', 'py-1.5', 'rounded-md', 'transition');
+    
+    // add text content
+    titleText.textContent = title;
+    assigneeText.textContent = `— ${assignee}`;
+    priorityBadge.textContent = priority;
+    deleteBtn.textContent = '✕';
+    moveBtn.textContent = 'Move Forward →';
+    
+    // append all childs
+    note.appendChild(pin);
+    note.appendChild(titleText);
+    note.appendChild(assigneeText);
+    note.appendChild(bottomRow);
+    bottomRow.appendChild(priorityBadge);
+    bottomRow.appendChild(deleteBtn);
+    note.appendChild(moveBtn);
+    
+    return note;
 };
 
