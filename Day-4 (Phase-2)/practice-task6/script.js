@@ -17,6 +17,22 @@ let currentBudget = 0;
 let activeFilter = 'All';
 
 
+//----- SEARCH BY NAME/TITLE
+searchInputBox.addEventListener('input', () => {
+    const searchText = searchInputBox.value.toLowerCase();
+    
+    const filteredProjects = projects.filter((item) => {
+      // search by tile or client name
+        const matchesSearch = item.title.toLowerCase().includes(searchText) || item.client.toLowerCase().includes(searchText);
+      // select status button & search based on what displayed on the page   
+        const matchesFilter = activeFilter === 'All' || item.status === activeFilter;
+        
+        return matchesSearch && matchesFilter;
+    });
+    renderingProjectsCard(filteredProjects);
+});
+
+
 //------ CREATE EACH ONE DYNAMIC FILTER BUTTONS
 function createFilterBtn(value){
    // CREATE BUTTON
