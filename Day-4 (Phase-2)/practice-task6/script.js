@@ -56,7 +56,7 @@ function createFilterBtn(value){
 }
 //====== STORE UNIQUE BUTTONS & DISPLAY ALL STATUS BUTTONS ON THE PAGE ======
 function renderingButtons(){
-    statusBtnContainer.innerHTML = '';
+   statusBtnContainer.innerHTML = '';
     
    //  GET ALL STATUS BUTTON
     const allStatusValues = originalProjects.map((p) => p.status);
