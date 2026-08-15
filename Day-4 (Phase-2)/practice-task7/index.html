@@ -35,9 +35,74 @@
             <button class="handwrite text-lg px-5 py-1.5 rounded-full bg-[#6FA88A]/80 text-white font-bold shadow-[2px_2px_0_rgba(0,0,0,0.2)]">Low</button>
         </div>
 
+        <!-- task board cards container -->
+        <div id="board-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- To Do column -->
+            <div class="board-column rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-5">
+                    <h2 class="handwrite text-3xl text-white">To Do</h2>
+                    <span id="todo-count" class="handwrite text-lg w-9 h-9 flex items-center justify-center rounded-full bg-white text-[#3D2B1F] font-bold shadow-[2px_2px_0_rgba(0,0,0,0.2)]">2</span>
+                </div>
 
-        
+                <div id="todo-container" class="space-y-6">
+                    <!-- data will be added dynamically, dummy card shown for design -->
+                    <div class="note relative bg-[#FFF1B8] rounded-sm p-5 pt-6">
+                        <div class="pin absolute -top-2 left-1/2 -translate-x-1/2 bg-[#E8635A]"></div>
+                        <h3 class="handwrite text-xl text-[#3D2B1F] mb-1">Design Homepage</h3>
+                        <p class="text-xs text-[#7A6A4F] font-bold mb-3">— Rafi</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-extrabold tracking-wide px-2.5 py-1 rounded bg-[#E8635A] text-white">High</span>
+                            <button class="delete-btn text-[#B3543F] hover:text-[#7A2E1F] font-bold text-sm">✕</button>
+                        </div>
+                        <button class="move-btn w-full mt-3 handwrite text-base px-3 py-1.5 rounded-md bg-[#3D2B1F] text-[#FFF1B8] hover:bg-[#241a12] transition">Move Forward →</button>
+                    </div>
+                </div>
+            </div>
 
+            <!-- In Progress column -->
+            <div class="board-column rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-5">
+                    <h2 class="handwrite text-3xl text-white">In Progress</h2>
+                    <span id="in-progress-count" class="handwrite text-lg w-9 h-9 flex items-center justify-center rounded-full bg-white text-[#3D2B1F] font-bold shadow-[2px_2px_0_rgba(0,0,0,0.2)]">1</span>
+                </div>
+
+                <div id="in-progress-container" class="space-y-6">
+                    <!-- data will be added dynamically, dummy card shown for design -->
+                    <div class="note relative bg-[#C9E4D8] rounded-sm p-5 pt-6">
+                        <div class="pin absolute -top-2 left-1/2 -translate-x-1/2 bg-[#E8B44A]"></div>
+                        <h3 class="handwrite text-xl text-[#233A30] mb-1">Fix Login Bug</h3>
+                        <p class="text-xs text-[#4E6A5B] font-bold mb-3">— Meem</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-extrabold tracking-wide px-2.5 py-1 rounded bg-[#E8635A] text-white">High</span>
+                            <button class="delete-btn text-[#3D6650] hover:text-[#1F3D2B] font-bold text-sm">✕</button>
+                        </div>
+                        <button class="move-btn w-full mt-3 handwrite text-base px-3 py-1.5 rounded-md bg-[#233A30] text-[#C9E4D8] hover:bg-[#152219] transition">Move Forward →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Done column -->
+            <div class="board-column rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-5">
+                    <h2 class="handwrite text-3xl text-white">Done</h2>
+                    <span id="done-count" class="handwrite text-lg w-9 h-9 flex items-center justify-center rounded-full bg-white text-[#3D2B1F] font-bold shadow-[2px_2px_0_rgba(0,0,0,0.2)]">1</span>
+                </div>
+
+                <div id="done-container" class="space-y-6">
+                    <!-- data will be added dynamically, dummy card shown for design -->
+                    <div class="note relative bg-[#E4E0D6] rounded-sm p-5 pt-6 opacity-80">
+                        <div class="pin absolute -top-2 left-1/2 -translate-x-1/2 bg-[#8FA88F]"></div>
+                        <h3 class="handwrite text-xl text-[#3D2B1F] mb-1 line-through">Setup Database</h3>
+                        <p class="text-xs text-[#7A7364] font-bold mb-3">— Rafi</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-extrabold tracking-wide px-2.5 py-1 rounded bg-[#E8B44A] text-white">Medium</span>
+                            <button class="delete-btn text-[#7A6A4F] hover:text-[#4A3D28] font-bold text-sm">✕</button>
+                        </div>
+                        <p class="handwrite text-base text-center mt-3 text-[#5C7A63]">✓ done!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
