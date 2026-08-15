@@ -1,0 +1,16 @@
+Task - Team Task Board 
+let tasks = [
+   {id: 1, title: "Design Homepage", assignee: "Rafi", column: "todo", priority: "high"},
+   {id: 2, title: "Fix Login Bug", assignee: "Meem", column: "in-progress", priority: "high"},
+   {id: 3, title: "Write Documentation", assignee: "Nabila", column: "todo", priority: "low"},
+   {id: 4, title: "Setup Database", assignee: "Rafi", column: "done", priority: "medium"},
+];
+
+কী করতে হবে:
+❶ Task গুলো ৩টা আলাদা Column এ ভাগ করে দেখাবে — "To Do", "In Progress", "Done" (Column অনুযায়ী Group করা)
+❷ প্রতিটা Task Card এ "Move Forward →" Button থাকবে — Click করলে Task পরের Column এ চলে যাবে (todo → in-progress → done, Done থেকে আর এগোবে না)
+❸ [Mixed] Priority Filter — Dynamic Button (High/Medium/Low)
+❹ [Mixed] Assignee দিয়ে Search
+❺ [Mixed] Filter + Search একসাথে কাজ করবে
+❻ Delete Button
+❼ প্রতিটা Column এর উপরে দেখাবে কতগুলো Task আছে (যেমন "To Do (2)")
