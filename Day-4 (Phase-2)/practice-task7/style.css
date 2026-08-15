@@ -1,0 +1,40 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #8B6544;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+    background-size: 18px 18px;
+}
+
+.handwrite { 
+    font-family: 'Kalam', cursive; 
+}
+
+.note {
+    box-shadow: 3px 4px 0 rgba(0,0,0,0.15), 0 10px 20px -8px rgba(0,0,0,0.35);
+}
+
+.note:nth-child(3n+1) {
+     transform: rotate(-2deg); 
+}
+.note:nth-child(3n+2) { 
+    transform: rotate(1.5deg); 
+}
+.note:nth-child(3n+3) { 
+    transform: rotate(-1deg); 
+}
+.note:hover { 
+    transform: rotate(0deg) translateY(-3px) scale(1.02); 
+}
+.note { 
+    transition: transform .2s ease; 
+}
+     
+.pin {
+    width: 14px; height: 14px; border-radius: 50%;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.4), inset 0 -2px 2px rgba(0,0,0,0.2), inset 0 2px 2px rgba(255,255,255,0.4);
+}
+
+.board-column {
+    background: rgba(255,255,255,0.08);
+    border: 2px dashed rgba(255,255,255,0.25);
+}
