@@ -7,10 +7,10 @@ const projectsContainer = document.getElementById('projects-container');
 
 // data
 let projects = [
-   {id: 1, title: "Logo Design", client: "Nabila", budget: 8000, status: "ongoing", deadline: "2026-09-01"},
+   {id: 1, title: "Logo Design", client: "Nabila", budget: 8000, status: "cancelled", deadline: "2026-08-20"},
    {id: 2, title: "Website Redesign", client: "Rafi Traders", budget: 25000, status: "completed", deadline: "2026-08-10"},
    {id: 3, title: "App Icon Set", client: "Meem Studio", budget: 4500, status: "ongoing", deadline: "2026-09-15"},
-   {id: 4, title: "Brand Guideline", client: "Nabila", budget: 12000, status: "pending", deadline: "2026-10-01"},
+   {id: 4, title: "Test Project", client: "Test Client", budget: 5000, status: "pending", deadline: "2026-08-18"}
 ];
 const originalProjects = [...projects];
 let activeFilter = 'All';
@@ -49,7 +49,7 @@ function renderingButtons(){
     statusBtnContainer.innerHTML = '';
     
    //  GET ALL STATUS BUTTON
-    const allStatusValues = projects.map((p) => p.status);
+    const allStatusValues = originalProjects.map((p) => p.status);
    //  STORE UNIQUE BUTTONS
     const uniqueStatuses = [...new Set(allStatusValues)];
     const allBtnValues = ['All', ...uniqueStatuses];
@@ -109,8 +109,7 @@ function createProjectsCard(elements){
     clientText.classList.add('mono', 'text-xs', 'text-[#3C4A5C]', 'mt-1');
     deleteBtn.classList.add('delete-btn', 'w-8', 'h-8', 'flex', 'items-center', 'justify-center', 'rounded-full', 'text-[#B15E42]', 'hover:bg-[#B15E42]', 'hover:text-white', 'transition');
     badgeRow.classList.add('flex', 'flex-wrap', 'gap-2', 'mb-4');
-    statusBadge.classList.add('mono', 'text-[11px]', 'uppercase', 'px-3', 'py-1', 'rounded-full', 'border');
-    deadlineBadge.classList.add('mono', 'text-[11px]', 'uppercase', 'px-3', 'py-1', 'rounded-full', 'bg-[#B15E42]/10', 'text-[#B15E42]', 'border', 'border-[#B15E42]/30');
+    statusBadge.classList.add('mono', 'text-[11px]', 'uppercase', 'px-3', 'py-1', 'rounded-full', 'border', 'bg-[#3C4A5C]/10', 'text-[#3C4A5C]', 'border', 'border-[#3C4A5C]/30');
     bottomRow.classList.add('flex', 'items-end', 'justify-between', 'pt-4', 'border-t', 'border-dashed', 'border-[#E4DFD3]');
     dateText.classList.add('mono', 'text-sm', 'text-[#3C4A5C]');
     budgetText.classList.add('serif', 'text-2xl', 'font-bold', 'text-[#1B2430]');
@@ -121,9 +120,26 @@ function createProjectsCard(elements){
     clientText.textContent = `Client — ${client}`;
     deleteBtn.textContent = '✕';
     statusBadge.textContent = status;
-    deadlineBadge.textContent = 'Deadline Soon ⚠';
     dateText.textContent = deadline;
     budgetText.textContent = `৳${budget}`;
+    
+   // DISPLAY DEADLINE MISSED WARNING
+   const today = new Date().getTime();  
+   const deadlineDate = new Date(elements.deadline).getTime(); 
+   const daysLeft = (deadlineDate - today) / (1000 * 60 * 60 * 24);
+   // CHECK IF DEADLINE MISSED
+   if(daysLeft < 7 && status !== 'completed'){
+      deadlineBadge.textContent = 'Deadline Soon ⚠';
+      deadlineBadge.classList.add('mono', 'text-[11px]', 'uppercase', 'px-3', 'py-1', 'rounded-full', 'bg-[#B15E42]/10', 'text-[#B15E42]', 'border', 'border-[#B15E42]/30');
+   }else{
+      deadlineBadge.classList.add('hidden');
+   }
+
+   // ADD EVENT LISTENER ON DELETE BUTTON TO DELETE ITEMS FROM ARRAY 
+   deleteBtn.addEventListener(('click'), () => {
+      projects = projects.filter((del) => del.id !== elements.id);
+      renderingProjectsCard(projects);
+   })
 
     // APPEND ALL THE CHILDS
     card.appendChild(topRow);
