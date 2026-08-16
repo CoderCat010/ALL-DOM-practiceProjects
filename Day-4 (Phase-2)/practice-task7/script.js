@@ -74,6 +74,16 @@ function createTaskCard(elements){
         moveBtn.textContent = '✓ done!';
     }
  
+    // add priority badge based on tasks type
+    if(elements.priority === 'high'){
+        priorityBadge.classList.add('bg-[#E8635A]');
+    }
+    else if(elements.priority === 'medium'){
+        priorityBadge.classList.add('bg-[#E8B44A]');
+    }
+    else{
+        priorityBadge.classList.add('bg-[#525252]');
+    }
 
     
     // append all childs
