@@ -85,7 +85,6 @@ function createTaskCard(elements){
         priorityBadge.classList.add('bg-[#525252]');
     }
 
-    
     // append all childs
     note.appendChild(pin);
     note.appendChild(titleText);
@@ -103,6 +102,9 @@ function renderingTaskBoardCards(){
    todoTaskContainer.innerHTML = '';
    inprogressTaskContainer.innerHTML = '';
    doneTaskContainer.innerHTML = '';
+   todoCountContainer.textContent = 0;
+   inprogressCountContainer.textContent = 0;
+   doneCountContainer.textContent = 0;
 
     // store value for each one column
     const todoTaskColumn = tasks.filter((todo) => todo.column === 'todo');
@@ -114,15 +116,21 @@ function renderingTaskBoardCards(){
         const firstCol = createTaskCard(cards);
         todoTaskContainer.appendChild(firstCol);
     });
+    todoCountContainer.textContent = todoTaskColumn.length;
+
     // append to the 2nd column
     inprogressTaskColumn.forEach((cards) => {
         const secCol = createTaskCard(cards);
         inprogressTaskContainer.appendChild(secCol);
     });
+    inprogressCountContainer.textContent = inprogressTaskColumn.length;
+
     // append to the third column
     doneTaskColumn.forEach((cards) => {
         const thirdCol = createTaskCard(cards);
         doneTaskContainer.appendChild(thirdCol);
+        doneCounter++;
     });
+    doneCountContainer.textContent = doneTaskColumn.length;
 }
 renderingTaskBoardCards(tasks);
