@@ -13,4 +13,4 @@ let tasks = [
 ❹ [Mixed] Assignee দিয়ে Search
 ❺ [Mixed] Filter + Search একসাথে কাজ করবে
 ❻ Delete Button
-❼ প্রতিটা Column এর উপরে দেখাবে কতগুলো Task আছে (যেমন "To Do (2)")
+❼ প্রতিটা Column এর উপরে দেখাবে কতগুলো Task আছে (যেমন "To Do (2)") প্রতিটা Column এর Task Count করবে

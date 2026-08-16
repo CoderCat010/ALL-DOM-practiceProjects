@@ -46,6 +46,35 @@ function createTaskCard(elements){
     priorityBadge.textContent = priority;
     deleteBtn.textContent = '✕';
     moveBtn.textContent = 'Move Forward →';
+
+    // change style based on column type
+    if(elements.column === 'todo'){
+        note.classList.add('bg-[#FFF1B8]');
+        titleText.classList.add('text-[#3D2B1F]');
+        assigneeText.classList.add('text-[#7A6A4F]');
+        pin.classList.add('bg-[#E8635A]');
+        deleteBtn.classList.add('text-[#B3543F]', 'hover:text-[#7A2E1F]');
+        moveBtn.classList.add('bg-[#3D2B1F]', 'text-[#FFF1B8]', 'hover:bg-[#241a12]');
+    }
+    else if(elements.column === 'in-progress'){
+        note.classList.add('bg-[#C9E4D8]');
+        titleText.classList.add('text-[#233A30]');
+        assigneeText.classList.add('text-[#4E6A5B]');
+        pin.classList.add('bg-[#E8B44A]');
+        deleteBtn.classList.add('text-[#3D6650]', 'hover:text-[#1F3D2B]');
+        moveBtn.classList.add('bg-[#233A30]', 'text-[#C9E4D8]', 'hover:bg-[#152219]');
+    }
+    else if(elements.column === 'done'){
+        note.classList.add('bg-[#E4E0D6]', 'opacity-80');
+        titleText.classList.add('text-[#3D2B1F]', 'line-through');
+        assigneeText.classList.add('text-[#7A7364]');
+        pin.classList.add('bg-[#8FA88F]');
+        deleteBtn.classList.add('text-[#7A6A4F]', 'hover:text-[#4A3D28]');
+        moveBtn.classList.add('text-[#5C7A63]', 'cursor-no-drop');
+        moveBtn.textContent = '✓ done!';
+    }
+ 
+
     
     // append all childs
     note.appendChild(pin);
