@@ -1,7 +1,12 @@
 // all elements
 const searchInputBox = document.getElementById('assignee-search');
 const filterContainer = document.getElementById('priority-filter-container');
-const boardContainer = document.getElementById('board-container');
+const todoTaskContainer = document.getElementById('todo-container');
+const inprogressTaskContainer = document.getElementById('in-progress-container');
+const doneTaskContainer = document.getElementById('done-container');
+const todoCountContainer = document.getElementById('todo-count');
+const inprogressCountContainer = document.getElementById('in-progress-count');
+const doneCountContainer = document.getElementById('done-count');
 
 // data
 let tasks = [
@@ -53,4 +58,32 @@ function createTaskCard(elements){
     
     return note;
 };
+// RENDER EACH ONE CARD BASED ON THEIR COLUMN
+function renderingTaskBoardCards(){
+   // reset values
+   todoTaskContainer.innerHTML = '';
+   inprogressTaskContainer.innerHTML = '';
+   doneTaskContainer.innerHTML = '';
 
+    // store value for each one column
+    const todoTaskColumn = tasks.filter((todo) => todo.column === 'todo');
+    const inprogressTaskColumn = tasks.filter((inprogress) => inprogress.column === 'in-progress');
+    const doneTaskColumn = tasks.filter((done) => done.column === 'done');
+
+    // append to the first column
+    todoTaskColumn.forEach((cards) => {
+        const firstCol = createTaskCard(cards);
+        todoTaskContainer.appendChild(firstCol);
+    });
+    // append to the 2nd column
+    inprogressTaskColumn.forEach((cards) => {
+        const secCol = createTaskCard(cards);
+        inprogressTaskContainer.appendChild(secCol);
+    });
+    // append to the third column
+    doneTaskColumn.forEach((cards) => {
+        const thirdCol = createTaskCard(cards);
+        doneTaskContainer.appendChild(thirdCol);
+    });
+}
+renderingTaskBoardCards(tasks);
