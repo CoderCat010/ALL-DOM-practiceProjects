@@ -85,6 +85,12 @@ function createTaskCard(elements){
         priorityBadge.classList.add('bg-[#525252]');
     }
 
+    // delete task 
+    deleteBtn.addEventListener(('click'), () => {
+        tasks = tasks.filter((task) => task.id !== elements.id);
+        renderingTaskBoardCards(tasks)
+    })
+
     // append all childs
     note.appendChild(pin);
     note.appendChild(titleText);
