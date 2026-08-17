@@ -16,6 +16,12 @@ let tasks = [
    {id: 4, title: "Setup Database", assignee: "Rafi", column: "done", priority: "medium"},
 ];
 
+// change columns value when move forward button cliked
+const nextColumn = {
+    "todo": "in-progress",
+    "in-progress":"done"
+}
+
 // CREATE TASK BOARD CARD
 function createTaskCard(elements){
     const { title, assignee, column, priority, id } = elements;
@@ -88,8 +94,19 @@ function createTaskCard(elements){
     // delete task 
     deleteBtn.addEventListener(('click'), () => {
         tasks = tasks.filter((task) => task.id !== elements.id);
-        renderingTaskBoardCards(tasks)
-    })
+        renderingTaskBoardCards(tasks);
+    });
+
+    // move task to next column when move forward button is clicked
+    moveBtn.addEventListener(('click'), () => {
+        const newColumn = nextColumn[elements.column];
+        if(newColumn === 'undefined'){
+            return;
+        }
+        const taskToMove = tasks.find((taskData) => taskData.id === elements.id);
+        taskToMove.column = newColumn;
+        renderingTaskBoardCards(tasks);
+    });
 
     // append all childs
     note.appendChild(pin);
@@ -135,7 +152,6 @@ function renderingTaskBoardCards(){
     doneTaskColumn.forEach((cards) => {
         const thirdCol = createTaskCard(cards);
         doneTaskContainer.appendChild(thirdCol);
-        doneCounter++;
     });
     doneCountContainer.textContent = doneTaskColumn.length;
 }
