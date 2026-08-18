@@ -21,11 +21,82 @@ const nextColumn = {
     "todo": "in-progress",
     "in-progress":"done"
 }
+const duplicateData = [...tasks];
+let activeFilter = 'All';
 
-// CREATE TASK BOARD CARD
-function createTaskCard(elements){
-    const { title, assignee, column, priority, id } = elements;
+
+//-----> CREATE FILTERING DATA ----- 
+function getFilteredData() {
+    const searchText = searchInputBox.value.toLowerCase();
+    return tasks.filter((task) => {
+        const matchesSearch = task.assignee.toLowerCase().includes(searchText);
+        const matchesFilter = activeFilter === 'All' || task.priority === activeFilter;
+        return matchesSearch && matchesFilter;
+    });
+}
+
+
+//===== SEARCH BOX TO SEARCH BY NAME =====
+searchInputBox.addEventListener('input', () => {
+    renderingTaskBoardCards(getFilteredData());
+});
+
+
+//-----> CREATE PRIORITY BUTTON -----
+function createPriorityBtns(priority){
+    // create button    
+    const btn = document.createElement("button");
     
+   // add styles
+   btn.classList.add('handwrite', 'text-lg', 'px-5', 'py-1.5', 'rounded-full', 'font-bold', 'shadow-[2px_2px_0_rgba(0,0,0,0.2)]');
+   btn.textContent = priority;
+
+   // change styles based on priorities type 
+   if (activeFilter === priority) {
+        btn.classList.add('text-white', 'bg-[#3D2B1F]');
+    }
+    // otherwise default color based on priority
+    else if (priority === 'high') {
+        btn.classList.add('bg-[#E8635A]/80', 'text-white');
+    }
+    else if (priority === 'medium') {
+        btn.classList.add('bg-[#E8B44A]/80', 'text-white');
+    }
+    else if (priority === 'low') {
+        btn.classList.add('bg-[#6FA88A]/80', 'text-white');
+    }
+    else {
+        btn.classList.add('text-[#3D2B1F]', 'bg-white');
+    }
+
+    // add event listener on button 
+    btn.addEventListener('click', () => {
+        activeFilter = priority;
+        renderingTaskBoardCards(getFilteredData());
+        renderingPriorityBtns();
+    });
+    return btn;
+}
+//===== RENDER PRIORITY BUTTONS
+function renderingPriorityBtns(){
+    filterContainer.innerHTML = '';
+    // get all priority status 
+    const priorityStatus = duplicateData.map(status => status.priority);
+    // store unique buttons 
+    const uniqueBtns = [...new Set(priorityStatus)];
+    const filteredBtns = ['All', ...uniqueBtns];
+    filteredBtns.forEach(values => {
+        const allBtns = createPriorityBtns(values);
+        filterContainer.appendChild(allBtns);
+    });
+}
+renderingPriorityBtns();
+
+
+//-----> CREATE TASK BOARD CARD -----
+function createTaskCard(task) {
+    const { id, title, assignee, column, priority } = task;
+
     // create note and inner elements
     const note = document.createElement('div');
     const pin = document.createElement('div');
@@ -35,8 +106,8 @@ function createTaskCard(elements){
     const priorityBadge = document.createElement('span');
     const deleteBtn = document.createElement('button');
     const moveBtn = document.createElement('button');
-    
-    // add styles (color depends on column — done via TODO below)
+
+    // add styles
     note.classList.add('note', 'relative', 'rounded-sm', 'p-5', 'pt-6');
     pin.classList.add('pin', 'absolute', '-top-2', 'left-1/2', '-translate-x-1/2');
     titleText.classList.add('handwrite', 'text-xl', 'mb-1');
@@ -45,7 +116,7 @@ function createTaskCard(elements){
     priorityBadge.classList.add('text-[10px]', 'uppercase', 'font-extrabold', 'tracking-wide', 'px-2.5', 'py-1', 'rounded', 'text-white');
     deleteBtn.classList.add('delete-btn', 'font-bold', 'text-sm');
     moveBtn.classList.add('move-btn', 'w-full', 'mt-3', 'handwrite', 'text-base', 'px-3', 'py-1.5', 'rounded-md', 'transition');
-    
+
     // add text content
     titleText.textContent = title;
     assigneeText.textContent = `— ${assignee}`;
@@ -54,7 +125,7 @@ function createTaskCard(elements){
     moveBtn.textContent = 'Move Forward →';
 
     // change style based on column type
-    if(elements.column === 'todo'){
+    if (column === 'todo') {
         note.classList.add('bg-[#FFF1B8]');
         titleText.classList.add('text-[#3D2B1F]');
         assigneeText.classList.add('text-[#7A6A4F]');
@@ -62,7 +133,7 @@ function createTaskCard(elements){
         deleteBtn.classList.add('text-[#B3543F]', 'hover:text-[#7A2E1F]');
         moveBtn.classList.add('bg-[#3D2B1F]', 'text-[#FFF1B8]', 'hover:bg-[#241a12]');
     }
-    else if(elements.column === 'in-progress'){
+    else if (column === 'in-progress') {
         note.classList.add('bg-[#C9E4D8]');
         titleText.classList.add('text-[#233A30]');
         assigneeText.classList.add('text-[#4E6A5B]');
@@ -70,7 +141,7 @@ function createTaskCard(elements){
         deleteBtn.classList.add('text-[#3D6650]', 'hover:text-[#1F3D2B]');
         moveBtn.classList.add('bg-[#233A30]', 'text-[#C9E4D8]', 'hover:bg-[#152219]');
     }
-    else if(elements.column === 'done'){
+    else if (column === 'done') {
         note.classList.add('bg-[#E4E0D6]', 'opacity-80');
         titleText.classList.add('text-[#3D2B1F]', 'line-through');
         assigneeText.classList.add('text-[#7A7364]');
@@ -79,31 +150,29 @@ function createTaskCard(elements){
         moveBtn.classList.add('text-[#5C7A63]', 'cursor-no-drop');
         moveBtn.textContent = '✓ done!';
     }
- 
-    // add priority badge based on tasks type
-    if(elements.priority === 'high'){
+
+    // add priority badge based on task priority
+    if (priority === 'high') {
         priorityBadge.classList.add('bg-[#E8635A]');
     }
-    else if(elements.priority === 'medium'){
+    else if (priority === 'medium') {
         priorityBadge.classList.add('bg-[#E8B44A]');
     }
-    else{
+    else {
         priorityBadge.classList.add('bg-[#525252]');
     }
 
-    // delete task 
-    deleteBtn.addEventListener(('click'), () => {
-        tasks = tasks.filter((task) => task.id !== elements.id);
+    // delete task
+    deleteBtn.addEventListener('click', () => {
+        tasks = tasks.filter((t) => t.id !== id);
         renderingTaskBoardCards(tasks);
     });
 
-    // move task to next column when move forward button is clicked
-    moveBtn.addEventListener(('click'), () => {
-        const newColumn = nextColumn[elements.column];
-        if(newColumn === 'undefined'){
-            return;
-        }
-        const taskToMove = tasks.find((taskData) => taskData.id === elements.id);
+    // move task to next column
+    moveBtn.addEventListener('click', () => {
+        const newColumn = nextColumn[column];
+        if (!newColumn) return;
+        const taskToMove = tasks.find((t) => t.id === id);
         taskToMove.column = newColumn;
         renderingTaskBoardCards(tasks);
     });
@@ -116,11 +185,11 @@ function createTaskCard(elements){
     bottomRow.appendChild(priorityBadge);
     bottomRow.appendChild(deleteBtn);
     note.appendChild(moveBtn);
-    
+
     return note;
-};
-// RENDER EACH ONE CARD BASED ON THEIR COLUMN
-function renderingTaskBoardCards(){
+}
+//====== RENDER EACH ONE CARD BASED ON THEIR COLUMN ======
+function renderingTaskBoardCards(arrObjData){
    // reset values
    todoTaskContainer.innerHTML = '';
    inprogressTaskContainer.innerHTML = '';
@@ -130,9 +199,9 @@ function renderingTaskBoardCards(){
    doneCountContainer.textContent = 0;
 
     // store value for each one column
-    const todoTaskColumn = tasks.filter((todo) => todo.column === 'todo');
-    const inprogressTaskColumn = tasks.filter((inprogress) => inprogress.column === 'in-progress');
-    const doneTaskColumn = tasks.filter((done) => done.column === 'done');
+    const todoTaskColumn = arrObjData.filter((todo) => todo.column === 'todo');
+    const inprogressTaskColumn = arrObjData.filter((inprogress) => inprogress.column === 'in-progress');
+    const doneTaskColumn = arrObjData.filter((done) => done.column === 'done');
 
     // append to the first column
     todoTaskColumn.forEach((cards) => {
